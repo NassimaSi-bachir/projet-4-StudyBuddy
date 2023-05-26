@@ -1,4 +1,4 @@
-{% extends 'base.html.twig' %}
+{% extends 'base-backend.html.twig' %}
 
 {% block title %}Author index{% endblock %}
 
@@ -15,7 +15,7 @@
                 <th>ImageName</th>
                 <th>Slug</th>
                 <th>Pseudo</th>
-                <th>actions</th>
+                <th class="text-end">actions</th>
             </tr>
         </thead>
         <tbody>
@@ -27,10 +27,10 @@
                 <td>{{ author.biography }}</td>
                 <td>{{ author.imageName }}</td>
                 <td>{{ author.slug }}</td>
-                <td>{{ author.pseudo }}</td>
+                <td>{{ author.pseudo .updatedAt ? auteur.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
                 <td>
-                    <a href="{{ path('app_admin_author_show', {'id': author.id}) }}">show</a>
-                    <a href="{{ path('app_admin_author_edit', {'id': author.id}) }}">edit</a>
+                    <a href="{{ path('app_admin_author_show', {'id': author.id}) }}"class=btn btn-warning"><i class="align-middle"data-feather=>show</a>
+                    <a href="{{ path('app_admin_author_edit', {'id': author.id}) }}"class="btn btn-success"><i class="align-middle"data-feather="edit-2"></i>>edit</a>
                 </td>
             </tr>
         {% else %}
@@ -41,5 +41,5 @@
         </tbody>
     </table>
 
-    <a href="{{ path('app_admin_author_new') }}">Create new</a>
+    <a href="{{ path('app_admin_author_new') }}" class="btn btn-success"><i class="align-middle"data-feather="plus"></i></a>
 {% endblock %}

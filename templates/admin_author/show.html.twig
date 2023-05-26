@@ -1,4 +1,4 @@
-{% extends 'base.html.twig' %}
+{% extends 'base-backend.html.twig' %}
 
 {% block title %}Author{% endblock %}
 
@@ -38,7 +38,7 @@
         </tbody>
     </table>
 
-    <a href="{{ path('app_admin_author_index') }}">back to list</a>
+    <a href="{{ path('app_admin_author_index') }}">back to list</a> 
 
     <a href="{{ path('app_admin_author_edit', {'id': author.id}) }}">edit</a>
 

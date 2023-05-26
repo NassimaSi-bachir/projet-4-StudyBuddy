@@ -3,15 +3,17 @@
 {% block title %}Category index{% endblock %}
 
 {% block body %}
-    <h1>Category index</h1>
-
+    <div class="d-flex flex-wrap justify-content-between align-items-center">
+    <h1>Category</h1>
+    <a href="{{ path('app_admin_category_new') }}"class="btn btn-success"><i class="align-middle" data-feather="plus"></i></a>
+    </div>
     <table class="table">
         <thead>
             <tr>
                 <th>Id</th>
                 <th>Name</th>
                 <th>Slug</th>
-                <th>actions</th>
+                <th class="text-end">actions</th>
             </tr>
         </thead>
         <tbody>
@@ -19,10 +21,10 @@
             <tr>
                 <td>{{ category.id }}</td>
                 <td>{{ category.name }}</td>
-                <td>{{ category.slug }}</td>
+                <td class="text-end">{{ category.slug }}</td>
                 <td>
-                    <a href="{{ path('app_admin_category_show', {'id': category.id}) }}">show</a>
-                    <a href="{{ path('app_admin_category_edit', {'id': category.id}) }}">edit</a>
+                    <a href="{{ path('app_admin_category_show', {'id': category.id}) }}" class="btn btn-warning"><i class="align-middle" data-feather="eye"></i></a>
+                    <a href="{{ path('app_admin_category_edit', {'id': category.id}) }}" class="btn btn-success"><i class="align-middle" data-feather="edit-2"></i></a>
                 </td>
             </tr>
         {% else %}
@@ -33,5 +35,5 @@
         </tbody>
     </table>
 
-    <a href="{{ path('app_admin_category_new') }}">Create new</a>
+    
 {% endblock %}

@@ -21,8 +21,8 @@
             <tr>
                 <td>{{ category.id }}</td>
                 <td>{{ category.name }}</td>
-                <td class="text-end">{{ category.slug }}</td>
-                <td>
+                <td>{{ category.slug }}</td>
+                <td class="text-end">
                     <a href="{{ path('app_admin_category_show', {'id': category.id}) }}" class="btn btn-warning"><i class="align-middle" data-feather="eye"></i></a>
                     <a href="{{ path('app_admin_category_edit', {'id': category.id}) }}" class="btn btn-success"><i class="align-middle" data-feather="edit-2"></i></a>
                 </td>

@@ -5,10 +5,11 @@ namespace App\Controller;
 use App\Entity\View;
 use App\Form\ViewType;
 use App\Repository\ViewRepository;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\String\Slugger\SluggerInterface;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 #[Route('/admin/view')]
 class AdminViewController extends AbstractController
@@ -22,13 +23,16 @@ class AdminViewController extends AbstractController
     }
 
     #[Route('/new', name: 'app_admin_view_new', methods: ['GET', 'POST'])]
-    public function new(Request $request, ViewRepository $viewRepository): Response
+    public function new(Request $request, ViewRepository $viewRepository, SluggerInterface $slugger): Response
     {
         $view = new View();
         $form = $this->createForm(ViewType::class, $view);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $view->setSlug(strtolower($slugger->slug($view->getId())));
+            // Ajout de cette ligne pour générer le slug automatiquement
+
             $viewRepository->save($view, true);
 
             return $this->redirectToRoute('app_admin_view_index', [], Response::HTTP_SEE_OTHER);

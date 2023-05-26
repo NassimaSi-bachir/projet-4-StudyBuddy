@@ -5,10 +5,11 @@ namespace App\Controller;
 use App\Entity\Video;
 use App\Form\VideoType;
 use App\Repository\VideoRepository;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\String\Slugger\SluggerInterface;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 #[Route('/admin/video')]
 class AdminVideoController extends AbstractController
@@ -22,13 +23,18 @@ class AdminVideoController extends AbstractController
     }
 
     #[Route('/new', name: 'app_admin_video_new', methods: ['GET', 'POST'])]
-    public function new(Request $request, VideoRepository $videoRepository): Response
+    public function new(Request $request, VideoRepository $videoRepository, SluggerInterface $slugger): Response
     {
         $video = new Video();
         $form = $this->createForm(VideoType::class, $video);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $video->setSlug(strtolower($slugger->slug($video->getTitle())));
+            // Ajout de cette ligne pour générer le slug automatiquement
+            $video->setTitle(ucfirst($video->getTitle()));
+            //Ajout de cette ligne pour générer une majuscule automatiquement au début du nom
+
             $videoRepository->save($video, true);
 
             return $this->redirectToRoute('app_admin_video_index', [], Response::HTTP_SEE_OTHER);

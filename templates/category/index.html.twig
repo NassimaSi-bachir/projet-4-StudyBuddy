@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Les catégories{% endblock %}
+
+{% block body %}
+
+<div class="example-wrapper">
+    <h1>Les catégories</h1>
+    {% for category in categorys %}
+    <ul>
+        <li>{{ category.name }}</li>
+    </ul>
+    <div class="col">
+    <div class="card">
+        <img src="{{category.videoName}}" class="card-img-top" alt="...">
+        <div class="card-body">
+        <h5 class="card-title">{{video.nom}}</h5>
+        <p class="card-text">{{video.description}}</p>
+    </div>
+    </div>
+</div>
+{% endfor %}
+</div>
+{% endblock %}
+

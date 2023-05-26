@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Les videos{% endblock %}
+
+{% block body %}
+
+<div class="example-wrapper">
+    <h1>Les videos</h1>
+    {% for video in videos %}
+    <ul>
+        <li>{{ video.name }}</li>
+    </ul>
+    <div class="col">
+    <div class="card">
+        <img src="{{video.videoName}}" class="card-img-top" alt="...">
+        <div class="card-body">
+        <h5 class="card-title">{{video.pseudo}}</h5>
+        <p class="card-text">{{video.biography}}</p>
+    </div>
+    </div>
+</div>
+{% endfor %}
+</div>
+{% endblock %}
+

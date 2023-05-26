@@ -1,21 +1,23 @@
 {% extends 'base-backend.html.twig' %}
 
-{% block title %}Author index{% endblock %}
+{% block title %}Auteur index{% endblock %}
 
 {% block body %}
-    <h1>Author index</h1>
-
+    <div class="d-flex flex-wrap justify-content-between align-items-center">
+    <h1>Autor </h1>
+    <a href="{{ path('app_admin_author_new') }}" class="btn btn-success"><i class="align-middle" data-feather="plus"></i></a>
+    </div>
     <table class="table">
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Name</th>
+                <th>Nom</th>
                 <th>Surname</th>
                 <th>Biography</th>
                 <th>ImageName</th>
                 <th>Slug</th>
                 <th>Pseudo</th>
-                <th>actions</th>
+                <th class="text-end">actions</th>
             </tr>
         </thead>
         <tbody>
@@ -27,10 +29,11 @@
                 <td>{{ author.biography }}</td>
                 <td>{{ author.imageName }}</td>
                 <td>{{ author.slug }}</td>
-                <td>{{ author.pseudo }}</td>
+
+                <td class="text-end">{{ author.pseudo }}</td>
                 <td>
-                    <a href="{{ path('app_admin_author_show', {'id': author.id}) }}">show</a>
-                    <a href="{{ path('app_admin_author_edit', {'id': author.id}) }}">edit</a>
+                    <a href="{{ path('app_admin_author_show', {'id': author.id}) }}" class="btn btn-warning"><i class="align-middle" data-feather="eye"></i></a>
+                    <a href="{{ path('app_admin_author_edit', {'id': author.id}) }}" class="btn btn-success"><i class="align-middle" data-feather="edit-2"></i></a>
                 </td>
             </tr>
         {% else %}
@@ -41,5 +44,4 @@
         </tbody>
     </table>
 
-    <a href="{{ path('app_admin_author_new') }}">Create new</a>
 {% endblock %}

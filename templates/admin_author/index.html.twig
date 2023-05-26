@@ -29,6 +29,7 @@
                 <td>{{ author.biography }}</td>
                 <td>{{ author.imageName }}</td>
                 <td>{{ author.slug }}</td>
+
                 <td class="text-end">{{ author.pseudo }}</td>
                 <td>
                     <a href="{{ path('app_admin_author_show', {'id': author.id}) }}" class="btn btn-warning"><i class="align-middle" data-feather="eye"></i></a>
@@ -43,5 +44,4 @@
         </tbody>
     </table>
 
-    
 {% endblock %}

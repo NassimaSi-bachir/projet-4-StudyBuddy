@@ -3,9 +3,10 @@
 {% block title %}New View{% endblock %}
 
 {% block body %}
-    <h1>Create new View</h1>
+    <h1>Nouvelle vue </h1>    
+    <a href="{{ path('app_admin_view_index') }}" class="btn btn-dark mb-3">Retour</a>
 
     {{ include('admin_view/_form.html.twig') }}
 
-    <a href="{{ path('app_admin_view_index') }}">back to list</a>
+
 {% endblock %}

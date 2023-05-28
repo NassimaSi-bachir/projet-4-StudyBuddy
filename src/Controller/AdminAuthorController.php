@@ -5,10 +5,11 @@ namespace App\Controller;
 use App\Entity\Author;
 use App\Form\AuthorType;
 use App\Repository\AuthorRepository;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\String\Slugger\SluggerInterface;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 #[Route('/admin/author')]
 class AdminAuthorController extends AbstractController
@@ -22,13 +23,18 @@ class AdminAuthorController extends AbstractController
     }
 
     #[Route('/new', name: 'app_admin_author_new', methods: ['GET', 'POST'])]
-    public function new(Request $request, AuthorRepository $authorRepository): Response
+    public function new(Request $request, AuthorRepository $authorRepository, SluggerInterface $slugger): Response
     {
         $author = new Author();
         $form = $this->createForm(AuthorType::class, $author);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $author->setSlug(strtolower($slugger->slug($author->getName())));
+            // Ajout de cette ligne pour générer le slug automatiquement
+            $author->setName(ucfirst($author->getName()));
+            //Ajout de cette ligne pour générer une majuscule automatiquement au début du nom
+
             $authorRepository->save($author, true);
 
             return $this->redirectToRoute('app_admin_author_index', [], Response::HTTP_SEE_OTHER);

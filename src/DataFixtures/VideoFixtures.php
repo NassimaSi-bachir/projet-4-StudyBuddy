@@ -11,7 +11,7 @@ class VideoFixtures extends Fixture
     public function load(ObjectManager $manager): void
     {
         $video = new Video();
-        $video->setTitle('isabelle-vidéo');
+        $video->setTitle('Education positive : pratiques');
         $video->setDescription("Un Groupe De Jeunes Dans La Discussion D'un Projet De Groupe");
         $video->setImageName('groupe-positive');
         $video->setVideoName('education-positive-video.mp4');
@@ -21,7 +21,7 @@ class VideoFixtures extends Fixture
         $manager->persist($video);
 
         $video = new Video();
-        $video->setTitle('brissiaud-vidéo');
+        $video->setTitle('Mathématiques : apprendre les divisions');
         $video->setDescription("Un élève Résolvant Une équation Mathématique Sur Le Tableau Noir");
         $video->setImageName('eleve-mathematique');
         $video->setVideoName('mathematique-brissiaud.mp4');

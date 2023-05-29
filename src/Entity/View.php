@@ -19,7 +19,7 @@ class View
     #[ORM\Column]
     private ?bool $state = null;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(length: 255, nullable: true)]
     private ?string $slug = null;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]

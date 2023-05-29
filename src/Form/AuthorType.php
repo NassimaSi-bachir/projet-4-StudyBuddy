@@ -4,10 +4,10 @@ namespace App\Form;
 
 use App\Entity\Author;
 use Symfony\Component\Form\AbstractType;
-use FOS\CKEditorBundle\Form\Type\CKEditorType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 
 class AuthorType extends AbstractType
 {
@@ -17,7 +17,11 @@ class AuthorType extends AbstractType
             ->add('name')
             ->add('surname')
             ->add('pseudo')
-            ->add('biography', CKEditorType::class)
+            ->add('imageFile', FileType::class, [
+                'required'=>false,
+                'label'=>"Photo de l'auteur",
+            ])
+            ->add('biography')
             // ->add('imageName')
             ->remove('slug')
             ->add('videos', EntityType::class, [

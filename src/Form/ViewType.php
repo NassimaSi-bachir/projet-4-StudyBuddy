@@ -13,7 +13,7 @@ class ViewType extends AbstractType
     {
         $builder
             ->add('state')
-            ->remove('slug')
+            // ->remove('slug')
             ->add('viewDate')
         ;
     }

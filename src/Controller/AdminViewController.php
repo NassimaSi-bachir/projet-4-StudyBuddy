@@ -30,8 +30,8 @@ class AdminViewController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $view->setSlug(strtolower($slugger->slug($view->getId())));
-            // Ajout de cette ligne pour générer le slug automatiquement
+            // $view->setSlug(strtolower($slugger->slug($view->getId())));
+            // // Ajout de cette ligne pour générer le slug automatiquement
 
             $viewRepository->save($view, true);
 

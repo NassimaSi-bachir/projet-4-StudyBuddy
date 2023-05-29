@@ -4,25 +4,23 @@
 
 {% block body %}
 
-
-<div class="example-wrapper">
+<main class="container-lg py-4">
     <h1>Les auteurs</h1>
-    {% for author in authors %}
-    <ul>
-        <li>{{ author.name }}{{author.surname}}</li>
-    </ul>
+    <div class="row">
 
-        <div class="row row-cols-1 row-cols-md-2 g-4">
-            <div class="col-12 col-md-3 col-lg-2">
+    {% for author in authors %}
+
+        <div class="col-12 col-md-4 col-xl-3 mb-3"> 
                 <div class="card">
-                    <img src="{{author.imageName}}" class="card-img-top" alt="...">
+                    <img src="/images/authors/{{author.imageName}}" class="card-img-top" alt="{{author.imageName}}">
                     <div class="card-body">
-                        <h5 class="card-title">{{author.pseudo}}</h5>
+                        <h5 class="card-title">{{ author.name }} {{author.surname}} {{author.pseudo}}</h5>
                         <p class="card-text">{{author.biography}}</p>
                     </div>
                 </div>
-            </div>
         </div>
+
 {% endfor %}
-</div>
+    </div>
+</main>
 {% endblock %}

@@ -26,7 +26,7 @@ class AuthorFixtures extends Fixture
         $author->setSurname('Brissiaud');
         $author->setBiography("Après une maîtrise de mathématiques obtenue en 1972 à l'université Paris-VII, il commence sa carrière professionnelle comme professeur certifié de mathématiques au lycée technique d'État Jean-Jaurès à Argenteuil. En 1976, il est nommé professeur de mathématiques à l'École normale d'instituteurs du Val-d’Oise qui devient ultérieurement un centre rattaché à l'IUFM de Versailles.");
         $author->setSlug('remi-brissiaud');
-        $author->setImageName('remi-brissiaud.jpg');
+        $author->setImageName('remi-brissiaud.png');
         $manager->persist($author);
         $this->addReference(self::REMI_BRISSIAUD, $author);
 

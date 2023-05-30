@@ -1,11 +1,12 @@
 {% extends 'base-backend.html.twig' %}
 
-{% block title %}View index{% endblock %}
+{% block title %}Voir la liste{% endblock %} 
+{# views index=voir l'indexe #}
 
 {% block body %}
 
 <div class="d-flex flex-wrap justify-content-between align-items-center">
-    <h1>Les vues </h1>
+    <h1>Les vues</h1>
     <a href="{{ path('app_admin_view_new') }}" class="btn btn-success"><i class="align-middle" data-feather="plus"></i></a>
 </div>
 
@@ -13,10 +14,10 @@
         <thead>
             <tr>
                 <th>Id</th>
-                <th>State</th>
+                <th>Etat</th>
                 <th>Slug</th>
-                <th>ViewDate</th>
-                <th class="text-end">actions</th>
+                <th>Vue le</th>
+                <th class="text-end">Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -33,7 +34,7 @@
             </tr>
         {% else %}
             <tr>
-                <td colspan="5">no records found</td>
+                <td colspan="5">Aucune donnée trouvée</td>
             </tr>
         {% endfor %}
         </tbody>

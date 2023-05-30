@@ -1,9 +1,9 @@
 {% extends 'base-backend.html.twig' %}
 
-{% block title %}Video{% endblock %}
+{% block title %}Vidéo{% endblock %}
 
 {% block body %}
-    <h1>Video</h1>
+    <h1>Vidéo</h1>
 
     <table class="table">
         <tbody>
@@ -12,7 +12,7 @@
                 <td>{{ video.id }}</td>
             </tr>
             <tr>
-                <th>Title</th>
+                <th>Titre</th>
                 <td>{{ video.title }}</td>
             </tr>
             <tr>
@@ -20,7 +20,7 @@
                 <td>{{ video.description }}</td>
             </tr>
             <tr>
-                <th>ImageName</th>
+                <th>Nom de l'image</th>
                 <td>{{ video.imageName }}</td>
             </tr>
             <tr>
@@ -28,27 +28,27 @@
                 <td>{{ video.slug }}</td>
             </tr>
             <tr>
-                <th>Duration</th>
+                <th>Durée</th>
                 <td>{{ video.duration }}</td>
             </tr>
             <tr>
-                <th>VideoName</th>
+                <th>Nom de la vidéo</th>
                 <td>{{ video.videoName }}</td>
             </tr>
             <tr>
-                <th>UpdatedAt</th>
+                <th>Modifier le</th>
                 <td>{{ video.updatedAt ? video.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
             </tr>
             <tr>
-                <th>CreationDate</th>
+                <th>Date de création</th>
                 <td>{{ video.creationDate ? video.creationDate|date('Y-m-d') : '' }}</td>
             </tr>
         </tbody>
     </table>
 
-    <a href="{{ path('app_admin_video_index') }}">back to list</a>
+    <a href="{{ path('app_admin_video_index') }}">Retour</a>
 
-    <a href="{{ path('app_admin_video_edit', {'id': video.id}) }}">edit</a>
+    <a href="{{ path('app_admin_video_edit', {'id': video.id}) }}">Modifier</a>
 
     {{ include('admin_video/_delete_form.html.twig') }}
 {% endblock %}

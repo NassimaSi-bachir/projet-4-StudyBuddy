@@ -1,12 +1,14 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello ViewController!{% endblock %}
+{% block title %}Studdy Buddy - Historique{% endblock %}
 
 {% block body %}
 
 
-<div class="example-wrapper">
-    <h1>voir les videos déjà vu</h1>
+<main class="container-lg py-4">
+    <h1 class="mb-3"><i data-feather="eye"></i> Ton historique <i data-feather="eye"></i></h1>
+
+    <div class="row d-flex justify-content-center">
     {% for view in views %}
     <ul>
         <li>{{ view.name }}</li>
@@ -24,5 +26,6 @@
             </div>
         </div>
 {% endfor %}
-</div>
+    </div>
+</main>
 {% endblock %}

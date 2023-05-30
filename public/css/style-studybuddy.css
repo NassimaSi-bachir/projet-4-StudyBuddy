@@ -1,0 +1,20 @@
+
+/* font-family: 'Patrick Hand', cursive;
+font-family: 'Patrick Hand SC', cursive;
+font-family: 'Permanent Marker', cursive; */
+
+body {
+    background-image: url("/images/background.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: 'Patrick Hand', cursive;
+}
+
+.navbar-brand {
+    font-family: 'Permanent Marker', cursive;
+}
+
+.nav-item, h1 {
+    font-family: 'Patrick Hand SC', cursive;
+    text-align: center;
+}

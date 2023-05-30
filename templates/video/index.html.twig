@@ -1,14 +1,14 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Les vidéos{% endblock %}
+{% block title %}Study Buddy - Les vidéos{% endblock %}
 
 {% block body %}
 
 
 <main class="container-lg py-4">
-    <h1>Les vidéos</h1>
+    <h1 class="mb-3"><i data-feather="film"></i> Toutes les vidéos <i data-feather="film"></i></h1>
 
-    <div class="row">
+    <div class="row d-flex justify-content-center">
     {% for video in videos %}
 
         <div class="col-12 col-md-4 col-xl-3 mb-3"> 
@@ -20,12 +20,60 @@
                     <h5 class="card-title">{{video.title}}</h5>
                     <p class="card-text">{{video.description}}</p>
                     <p class="card-text">{{video.duration}}</p>
+                    <p class="card-text"><i data-feather="heart" class="text-danger"></i></p>
                 </div>
             </div>
         </div>
 
 {% endfor %}
     </div>
+
+    <h1 class="mb-3"><i data-feather="heart"></i> Mes favoris <i data-feather="heart"></i></h1>
+
+    <div class="row d-flex justify-content-center">
+    {% for video in videos %}
+
+        <div class="col-12 col-md-4 col-xl-3 mb-3"> 
+            <div class="card">
+                <video controls>
+                    <source src="/videos/{{video.videoName}}" class="card-img-top" type="video/webm">
+                </video>
+                <div class="card-body">
+                    <h5 class="card-title">{{video.title}}</h5>
+                    <p class="card-text">{{video.description}}</p>
+                    <p class="card-text">{{video.duration}}</p>
+                    <p class="card-text"><i data-feather="heart" class="text-danger"></i></p>
+                </div>
+            </div>
+        </div>
+
+{% endfor %}
+    </div>
+
+    <h1 class="mb-3"><i data-feather="gift"></i> Vidéos au hasard <i data-feather="gift"></i></h1>
+
+    <div class="row d-flex justify-content-center">
+    {% for video in videos %}
+    
+
+        <div class="col-12 col-md-4 col-xl-3 mb-3"> 
+            <div class="card">
+                <video controls>
+                    <source src="/videos/{{video.videoName}}" class="card-img-top" type="video/webm">
+                </video>
+                <div class="card-body">
+                    <h5 class="card-title">{{video.title}}</h5>
+                    <p class="card-text">{{video.description}}</p>
+                    <p class="card-text">{{video.duration}}</p>
+                    <p class="card-text"><i data-feather="heart" class="text-danger"></i></p>
+                </div>
+            </div>
+        </div>
+
+{% endfor %}
+    </div>
+
+
 </main>
 {% endblock %}
 

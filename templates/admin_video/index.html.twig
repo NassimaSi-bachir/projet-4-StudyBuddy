@@ -1,23 +1,23 @@
 {% extends 'base-backend.html.twig' %}
 
-{% block title %}Video index{% endblock %}
+{% block title %}Vidéo index{% endblock %}
 
 {% block body %}
-    <h1>Video index</h1>
+    <h1>Vidéo index</h1>
 
     <table class="table">
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Title</th>
+                <th>Titre</th>
                 <th>Description</th>
-                <th>ImageName</th>
+                <th>Nom de l'image</th>
                 <th>Slug</th>
-                <th>Duration</th>
-                <th>VideoName</th>
-                <th>UpdatedAt</th>
-                <th>CreationDate</th>
-                <th>actions</th>
+                <th>Durée</th>
+                <th>Nom de la vidéo</th>
+                <th>Modifier le</th>
+                <th>Date de création</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -33,17 +33,17 @@
                 <td>{{ video.updatedAt ? video.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
                 <td>{{ video.creationDate ? video.creationDate|date('Y-m-d') : '' }}</td>
                 <td>
-                    <a href="{{ path('app_admin_video_show', {'id': video.id}) }}">show</a>
-                    <a href="{{ path('app_admin_video_edit', {'id': video.id}) }}">edit</a>
+                    <a href="{{ path('app_admin_categorie_show', {'id': categorie.id}) }}"class="btn btn-warning"><i class="align-middle" data-feather="eye"></i></a>
+                    <a href="{{ path('app_admin_categorie_edit', {'id': categorie.id}) }}"class="btn btn-success"><i class="align-middle" data-feather="edit-2"></i></a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="10">no records found</td>
+                <td colspan="10">Aucune donnée trouvée</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <a href="{{ path('app_admin_video_new') }}">Create new</a>
+    <a href="{{ path('app_admin_video_new') }}">Créer un nouvel enregistrement</a>
 {% endblock %}

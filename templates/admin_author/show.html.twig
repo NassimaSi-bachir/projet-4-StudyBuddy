@@ -13,33 +13,35 @@
                 <td>{{ author.id }}</td>
             </tr>
             <tr>
-                <th>Name</th>
+                <th>Nom</th>
                 <td>{{ author.name }}</td>
             </tr>
             <tr>
-                <th>Surname</th>
+                <th>Prénom</th>
                 <td>{{ author.surname }}</td>
             </tr>
+                        <tr>
+                <th>Pseudo</th>
+                <td>{{ author.pseudo }}</td>
+            </tr>
             <tr>
-                <th>Biography</th>
+                <th>Biographie</th>
                 <td>{{ author.biography }}</td>
             </tr>
             <tr>
-                <th>ImageName</th>
+                <th>Nom de l'image</th>
                 <td>{{ author.imageName }}</td>
             </tr>
             <tr>
                 <th>Slug</th>
                 <td>{{ author.slug }}</td>
             </tr>
-            <tr>
-                <th>Pseudo</th>
-                <td>{{ author.pseudo }}</td>
-            </tr>
+
         </tbody>
     </table>
 
-    <a href="{{ path('app_admin_author_index') }}">back to list</a> 
+    <a href="{{ path('app_admin_author_index') }}">Retour</a> 
+    
     <a href="{{ path('app_admin_author_edit', {'id': author.id}) }}" class="btn btn-success">Modifier</a>
 
 

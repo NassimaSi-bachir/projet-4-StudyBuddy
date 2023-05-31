@@ -3,21 +3,33 @@
 {% block title %}Catégorie index{% endblock %}
 
 {% block body %}
+
+{# {% for label, messages in app.flashes() %}
+    {% for message in messages %}
+        <div class="alert alert-{{ label }}">
+            {{ message }}
+        </div>
+    {% endfor %}
+{% endfor %} #}
+
     <div class="d-flex flex-wrap justify-content-between align-items-center">
-    <h1>Category</h1>
+    <h1>Catégories</h1>
     <a href="{{ path('app_admin_category_new') }}"class="btn btn-success"><i class="align-middle" data-feather="plus"></i></a>
     </div>
     <table class="table">
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Name</th>
+                <th>Nom</th>
                 <th>Slug</th>
-                <th class="text-end">actions</th>
+                <th class="text-end">Actions</th>
             </tr>
         </thead>
         <tbody>
+
         {% for category in categorys %}
+
+       
             <tr>
                 <td>{{ category.id }}</td>
                 <td>{{ category.name }}</td>
@@ -29,11 +41,11 @@
             </tr>
         {% else %}
             <tr>
-                <td colspan="4">no records found</td>
+                <td colspan="4">Aucune donnée trouvée</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    
+    {# <a href="{{ path('app_admin_categorie_new') }}">Create new</a> #}
 {% endblock %}

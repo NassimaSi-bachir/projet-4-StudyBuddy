@@ -11,7 +11,7 @@
         {% endblock %}
     </head>
     <body>
-    	<div class="wrapper">
+    <div class="wrapper">
         {% include 'admin_common/_nav-lateral.html.twig' %}
             <div class="main">
                 <nav class="navbar navbar-expand navbar-light navbar-bg">
@@ -30,7 +30,8 @@
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end py-0" aria-labelledby="alertsDropdown">
                                     <div class="dropdown-menu-header">
-                                        4 New Notifications
+                                        4 Nouvelles Notifications
+                                        {# 4 New Notifications #}
                                     </div>
                                     <div class="list-group">
                                         <a href="#" class="list-group-item">
@@ -39,9 +40,12 @@
                                                     <i class="text-danger" data-feather="alert-circle"></i>
                                                 </div>
                                                 <div class="col-10">
-                                                    <div class="text-dark">Update completed</div>
-                                                    <div class="text-muted small mt-1">Restart server 12 to complete the update.</div>
-                                                    <div class="text-muted small mt-1">30m ago</div>
+                                                    <div class="text-dark">Mise à jour terminée</div> 
+                                                    {# Update completed #}
+                                                    <div class="text-muted small mt-1">Redémarrez le serveur 12 pour terminer la mise à jour.</div>
+                                                    {# Restart server 12 to complete the update. #}
+                                                    <div class="text-muted small mt-1">il y a 30 min</div>
+                                                    {# 30m ago #}
                                                 </div>
                                             </div>
                                         </a>
@@ -53,7 +57,8 @@
                                                 <div class="col-10">
                                                     <div class="text-dark">Lorem ipsum</div>
                                                     <div class="text-muted small mt-1">Aliquam ex eros, imperdiet vulputate hendrerit et.</div>
-                                                    <div class="text-muted small mt-1">2h ago</div>
+                                                    <div class="text-muted small mt-1">2 heures plus tôt</div>
+                                                    {# 2h ago #}
                                                 </div>
                                             </div>
                                         </a>
@@ -64,7 +69,8 @@
                                                 </div>
                                                 <div class="col-10">
                                                     <div class="text-dark">Login from 192.186.1.8</div>
-                                                    <div class="text-muted small mt-1">5h ago</div>
+                                                    <div class="text-muted small mt-1">5 heures plus tôt</div>
+                                                    {# 5h ago #}
                                                 </div>
                                             </div>
                                         </a>
@@ -74,15 +80,18 @@
                                                     <i class="text-success" data-feather="user-plus"></i>
                                                 </div>
                                                 <div class="col-10">
-                                                    <div class="text-dark">New connection</div>
-                                                    <div class="text-muted small mt-1">Christina accepted your request.</div>
-                                                    <div class="text-muted small mt-1">14h ago</div>
+                                                    <div class="text-dark">Nouvelle connection</div>
+                                                    {# New connection #}
+                                                    <div class="text-muted small mt-1">Christina a accepté votre requête.</div>
+                                                    {# Christina accepted your request. #}
+                                                    <div class="text-muted small mt-1">14 heures plus tôt</div>
+                                                    {# 14h ago #}
                                                 </div>
                                             </div>
                                         </a>
                                     </div>
                                     <div class="dropdown-menu-footer">
-                                        <a href="#" class="text-muted">Show all notifications</a>
+                                        <a href="#" class="text-muted">Montrer les Notifications</a>
                                     </div>
                                 </div>
                             </li>
@@ -95,7 +104,7 @@
                                 <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end py-0" aria-labelledby="messagesDropdown">
                                     <div class="dropdown-menu-header">
                                         <div class="position-relative">
-                                            4 New Messages
+                                            4 Nouveaux messages
                                         </div>
                                     </div>
                                     <div class="list-group">
@@ -107,7 +116,7 @@
                                                 <div class="col-10 ps-2">
                                                     <div class="text-dark">Vanessa Tucker</div>
                                                     <div class="text-muted small mt-1">Nam pretium turpis et arcu. Duis arcu tortor.</div>
-                                                    <div class="text-muted small mt-1">15m ago</div>
+                                                    <div class="text-muted small mt-1">15 minutes plus tôt</div>
                                                 </div>
                                             </div>
                                         </a>
@@ -119,7 +128,7 @@
                                                 <div class="col-10 ps-2">
                                                     <div class="text-dark">William Harris</div>
                                                     <div class="text-muted small mt-1">Curabitur ligula sapien euismod vitae.</div>
-                                                    <div class="text-muted small mt-1">2h ago</div>
+                                                    <div class="text-muted small mt-1">2 heures avant</div>
                                                 </div>
                                             </div>
                                         </a>
@@ -131,7 +140,7 @@
                                                 <div class="col-10 ps-2">
                                                     <div class="text-dark">Christina Mason</div>
                                                     <div class="text-muted small mt-1">Pellentesque auctor neque nec urna.</div>
-                                                    <div class="text-muted small mt-1">4h ago</div>
+                                                    <div class="text-muted small mt-1">4 heures avant</div>
                                                 </div>
                                             </div>
                                         </a>
@@ -143,13 +152,13 @@
                                                 <div class="col-10 ps-2">
                                                     <div class="text-dark">Sharon Lessman</div>
                                                     <div class="text-muted small mt-1">Aenean tellus metus, bibendum sed, posuere ac, mattis non.</div>
-                                                    <div class="text-muted small mt-1">5h ago</div>
+                                                    <div class="text-muted small mt-1">5 heures avant</div>
                                                 </div>
                                             </div>
                                         </a>
                                     </div>
                                     <div class="dropdown-menu-footer">
-                                        <a href="#" class="text-muted">Show all messages</a>
+                                        <a href="#" class="text-muted">Montrer tous les messages</a>
                                     </div>
                                 </div>
                             </li>
@@ -162,13 +171,13 @@
                     <img src="img/avatars/avatar.jpg" class="avatar img-fluid rounded me-1" alt="Charles Hall" /> <span class="text-dark">Charles Hall</span>
                     </a>
                                 <div class="dropdown-menu dropdown-menu-end">
-                                    <a class="dropdown-item" href="pages-profile.html"><i class="align-middle me-1" data-feather="user"></i> Profile</a>
-                                    <a class="dropdown-item" href="#"><i class="align-middle me-1" data-feather="pie-chart"></i> Analytics</a>
+                                    <a class="dropdown-item" href="pages-profile.html"><i class="align-middle me-1" data-feather="user"></i> Profil</a>
+                                    <a class="dropdown-item" href="#"><i class="align-middle me-1" data-feather="pie-chart"></i> Statistiques</a>
                                     <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="index.html"><i class="align-middle me-1" data-feather="settings"></i> Settings & Privacy</a>
-                                    <a class="dropdown-item" href="#"><i class="align-middle me-1" data-feather="help-circle"></i> Help Center</a>
+                                    <a class="dropdown-item" href="index.html"><i class="align-middle me-1" data-feather="settings"></i> Paramètres de confidentialité</a>
+                                    <a class="dropdown-item" href="#"><i class="align-middle me-1" data-feather="help-circle"></i> Centre d'aide</a>
                                     <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="#">Log out</a>
+                                    <a class="dropdown-item" href="#">Se déconnecter</a>
                                 </div>
                             </li>
                         </ul>
@@ -193,13 +202,13 @@
                                         <a class="text-muted" href="https://adminkit.io/" target="_blank">Support</a>
                                     </li>
                                     <li class="list-inline-item">
-                                        <a class="text-muted" href="https://adminkit.io/" target="_blank">Help Center</a>
+                                        <a class="text-muted" href="https://adminkit.io/" target="_blank">Centre d'aide</a>
                                     </li>
                                     <li class="list-inline-item">
-                                        <a class="text-muted" href="https://adminkit.io/" target="_blank">Privacy</a>
+                                        <a class="text-muted" href="https://adminkit.io/" target="_blank">Confidentialité</a>
                                     </li>
                                     <li class="list-inline-item">
-                                        <a class="text-muted" href="https://adminkit.io/" target="_blank">Terms</a>
+                                        <a class="text-muted" href="https://adminkit.io/" target="_blank">Conditions</a>
                                     </li>
                                 </ul>
                             </div>

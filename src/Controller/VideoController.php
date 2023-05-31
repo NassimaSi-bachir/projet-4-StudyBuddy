@@ -19,7 +19,7 @@ class VideoController extends AbstractController
             'videos' => $videos,
         ]);
     }
-    #[Route('/video/{slug}', name: ' app_video_show' )]
+    #[Route('/video/{slug}', name:'app_video_show' )]
     public function showVideo($slug, VideoRepository $videoRepository):Response
     {
        //On récupère le livre correspondant au slug

@@ -12,12 +12,12 @@ class AuthorController extends AbstractController
     #[Route('/author', name: 'app_author')]
     public function index(AuthorRepository $authorRepository): Response
     {
-        //On récupère tous les authors
-        $authors = $authorRepository->findAll();
-         //On rend la page en lui passant la liste des videos
+        // //On récupère tous les authors
+        // $authors = $authorRepository->findAll();
+        //  //On rend la page en lui passant la liste des videos
         return $this->render('author/index.html.twig', [
             'controller_name' => 'AuthorController',
-            'authors' => $authors,
+            // 'authors' => $authors,
         ]);
     }
 }

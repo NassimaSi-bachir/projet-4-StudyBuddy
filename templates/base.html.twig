@@ -16,9 +16,9 @@
         {% endblock %}
 
         
-    </head>
+    </head> 
 
-    <body>
+    <body> 
 
 <nav class=" navbar navbar-expand-md navbar-light text-center">
   <div class="container-fluid align-items-center">
@@ -36,7 +36,7 @@
         <li class="nav-item mx-3">
           <a class="nav-link d-flex flex-column align-items-center" href="{{path('app_category') }}">Catégories <i data-feather="search"></i></a>
         </li>
-        <a class="navbar-brand mx-5" href="#">
+        <a class="navbar-brand mx-5" href="{{path('app_home') }}">
           <img src="/images/studybuddy-logo.png" width="50px" alt="logo study buddy">
           <p>Study Buddy</p>
         </a>
@@ -45,28 +45,15 @@
         </li>
         <li class="nav-item mx-3">
         {% if app.user is not null %}
-
-        {# <a class="nav-link " href="{{path('app_profil')}}">Mon compte</a> #}
-        <a class="nav-link d-flex flex-column align-items-center" href="{{ path('app_logout')}}">Déonnexion</a>
+        <a class="nav-link d-flex flex-column align-items-center" href="{{ path('app_logout')}}">Profil <i data-feather="user"></i></a>
         {% else %}
-        <a class="nav-link " href="{{path('app_register')}}">Inscription</a>
-        <a class="nav-link d-flex flex-column align-items-center" href="{{ path('app_login')}}">Connexion</a>
-
+        <a class="nav-link d-flex flex-column align-items-center" href="{{ path('app_login')}}">Connexion <i data-feather="user"></i></a>
         {% endif %}
-          <a class="nav-link d-flex flex-column align-items-center" href="{{path('app_profil') }}">Profil<i data-feather="user"></i></a>
         </li>
       </ul>
     </div>
   </div>
 </nav>
-    </nav>
-{% for label, messages in app.flashes() %}
-    {% for message in messages %}
-        <div class="alert alert-{{label}}" role="alert">
-            {{ message }}
-        </div>
-          {% endfor %}
-{% endfor %}
 
 
 
@@ -100,9 +87,10 @@
 </div>
 </nav> #}
 
-    <div class="container-xl">
+<main class="container-lg py-4">
         {% block body %}{% endblock %}
-    </div>
+</main>
+
         {% block javascripts %}
         {% endblock %}
         <script>feather.replace()</script>

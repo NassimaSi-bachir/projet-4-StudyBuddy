@@ -13,7 +13,7 @@ class VideoFixtures extends Fixture
         $video = new Video();
         $video->setTitle('Education positive : pratiques');
         $video->setDescription("Un Groupe De Jeunes Dans La Discussion D'un Projet De Groupe");
-        $video->setImageName('lecture.jpeg');
+        $video->setImageName('lecture.jpg');
         $video->setVideoName('education-positive-video.mp4');
         $video->setSlug('education-positive-video');
         $video->addCategory($this->getReference(CategoryFixtures::LANGUES));

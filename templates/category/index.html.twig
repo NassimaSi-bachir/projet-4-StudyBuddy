@@ -3,8 +3,6 @@
 {% block title %}Study Buddy - Toutes les catégories{% endblock %}
 
 {% block body %}
-
-<main class="container-lg py-4">
     <h1 class="mb-3"><i data-feather="search"></i> Toutes les catégories <i data-feather="search"></i></h1>
 
 
@@ -13,21 +11,14 @@
 
     <div class=" col-12 col-md-3 col-lg-3 mb-3">
         
-            <button class="btn btn-light btn-outline-primary shadow">
+            <a href="{{ path ('app_category_show', {slug:category.slug }) }}" class="btn btn-light btn-outline-primary shadow">
                 <img src="{{ asset('/images/category/' ~ category.imageName) }}" class="card-img-top" alt="{{category.name}}">
                 <h2>{{category.name}}</h2>
-            </button>
+            </a>
         
-
-                    {# <img src="{{video.videoName}}" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">{{video.title}}</h5>
-                        <p class="card-text">{{video.description}}</p>
-                        <p class="card-text">{{video.duration}}</p>
-                    </div> #}
     </div>
+
 {% endfor %}
     </div>
-</main>
 {% endblock %}
 

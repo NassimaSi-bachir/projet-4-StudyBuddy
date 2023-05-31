@@ -3,11 +3,14 @@
 namespace App\DataFixtures;
 
 use App\Entity\Video;
-use Doctrine\Bundle\FixturesBundle\Fixture;
+use App\DataFixtures\AuthorFixtures;
+use App\DataFixtures\CategoryFixtures;
 use Doctrine\Persistence\ObjectManager;
+use Doctrine\Bundle\FixturesBundle\Fixture;
 
 class VideoFixtures extends Fixture
 {
+
     public function load(ObjectManager $manager): void
     {
         $video = new Video();
@@ -63,7 +66,7 @@ class VideoFixtures extends Fixture
         $video = new Video();
         $video->setTitle('Les monuments en Italie');
         $video->setDescription('Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ');
-        $video->setImageName('geographie3.png');
+        // $video->setImageName('geographie3.png');
         $video->setVideoName('education-positive-video.mp4');
         $video->setSlug('geographie3');
         $video->addCategory($this->getReference(CategoryFixtures::GEOGRAPHIE));

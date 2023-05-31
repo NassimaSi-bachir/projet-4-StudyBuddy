@@ -28,7 +28,7 @@
                 <td>{{ view.slug }}</td>
                 <td>{{ view.viewDate ? view.viewDate|date('Y-m-d H:i:s') : '' }}</td>
                 <td class="text-end">
-                    <a href="{{ path('app_admin_view_show', {'id': view.id}) }}"class="btn btn-warning"><i class="align-middle" data-feather="eye"></i></a>
+                    <a href="{{ path('app_admin_view_show', {'id': view.id}) }}"class="btn btn-warning"><i class="align-middle" data-feather="eye"></i></i></a>
                     <a href="{{ path('app_admin_view_edit', {'id': view.id}) }}"class="btn btn-success"><i class="align-middle" data-feather="edit-2"></i></a>
                 </td>
             </tr>

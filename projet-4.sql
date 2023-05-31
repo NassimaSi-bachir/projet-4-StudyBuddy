@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : jeu. 25 mai 2023 à 13:32
+-- Généré le : mar. 30 mai 2023 à 14:37
 -- Version du serveur : 8.0.31
 -- Version de PHP : 8.0.26
 
@@ -37,7 +37,15 @@ CREATE TABLE IF NOT EXISTS `author` (
   `slug` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `pseudo` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Déchargement des données de la table `author`
+--
+
+INSERT INTO `author` (`id`, `name`, `surname`, `biography`, `image_name`, `slug`, `pseudo`) VALUES
+(1, 'Isabelle', 'Filliozat', 'Isabelle Filliozat est la fille du psychologue Rémy Filliozat, cofondateur de l\'Institut français d\'analyse transactionnelle1 et d\'Anne-Marie Filliozat-Cosson, psychologue et psychanalyste, qui a travaillé à l\'hôpital Necker auprès d\'enfants atteints de mucoviscidose. Ses parents ont développé en 1980 le stage de formation « Je dis non à la maladie, je dis oui à ses messages » et créé la formation de conseiller en santé holistique.', 'isabelle-filliozat.jpg', 'isabelle-filliozat', NULL),
+(2, 'Remi', 'Brissiaud', 'Après une maîtrise de mathématiques obtenue en 1972 à l\'université Paris-VII, il commence sa carrière professionnelle comme professeur certifié de mathématiques au lycée technique d\'État Jean-Jaurès à Argenteuil. En 1976, il est nommé professeur de mathématiques à l\'École normale d\'instituteurs du Val-d’Oise qui devient ultérieurement un centre rattaché à l\'IUFM de Versailles.', 'remi-brissiaud.png', 'remi-brissiaud', NULL);
 
 -- --------------------------------------------------------
 
@@ -51,7 +59,15 @@ CREATE TABLE IF NOT EXISTS `category` (
   `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `slug` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Déchargement des données de la table `category`
+--
+
+INSERT INTO `category` (`id`, `name`, `slug`) VALUES
+(1, 'Education Positive', 'education-positive'),
+(2, 'Mathématiques', 'mathematiques');
 
 -- --------------------------------------------------------
 
@@ -72,7 +88,7 @@ CREATE TABLE IF NOT EXISTS `doctrine_migration_versions` (
 --
 
 INSERT INTO `doctrine_migration_versions` (`version`, `executed_at`, `execution_time`) VALUES
-('DoctrineMigrations\\Version20230524152436', '2023-05-24 15:25:55', 835);
+('DoctrineMigrations\\Version20230530143730', '2023-05-30 14:37:37', 155);
 
 -- --------------------------------------------------------
 
@@ -98,6 +114,29 @@ CREATE TABLE IF NOT EXISTS `messenger_messages` (
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `user`
+--
+
+DROP TABLE IF EXISTS `user`;
+CREATE TABLE IF NOT EXISTS `user` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `email` varchar(180) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `roles` json NOT NULL,
+  `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `surname` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `image_name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `slug` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `updated_at` datetime DEFAULT NULL COMMENT '(DC2Type:datetime_immutable)',
+  `date` date NOT NULL,
+  `favoris` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `UNIQ_8D93D649E7927C74` (`email`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `video`
 --
 
@@ -115,7 +154,15 @@ CREATE TABLE IF NOT EXISTS `video` (
   `creation_date` date DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `IDX_7CC7DA2C31518C7` (`view_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Déchargement des données de la table `video`
+--
+
+INSERT INTO `video` (`id`, `view_id`, `title`, `description`, `image_name`, `slug`, `duration`, `video_name`, `updated_at`, `creation_date`) VALUES
+(1, NULL, 'Education positive : pratiques', 'Un Groupe De Jeunes Dans La Discussion D\'un Projet De Groupe', 'groupe-positive', 'education-positive-video', NULL, 'education-positive-video.mp4', NULL, NULL),
+(2, NULL, 'Mathématiques : apprendre les divisions', 'Un élève Résolvant Une équation Mathématique Sur Le Tableau Noir', 'eleve-mathematique', 'mathematique-video', NULL, 'mathematique-brissiaud.mp4', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -132,6 +179,14 @@ CREATE TABLE IF NOT EXISTS `video_author` (
   KEY `IDX_85F87805F675F31B` (`author_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Déchargement des données de la table `video_author`
+--
+
+INSERT INTO `video_author` (`video_id`, `author_id`) VALUES
+(1, 1),
+(2, 2);
+
 -- --------------------------------------------------------
 
 --
@@ -147,6 +202,14 @@ CREATE TABLE IF NOT EXISTS `video_category` (
   KEY `IDX_AECE2B7D12469DE2` (`category_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Déchargement des données de la table `video_category`
+--
+
+INSERT INTO `video_category` (`video_id`, `category_id`) VALUES
+(1, 1),
+(2, 2);
+
 -- --------------------------------------------------------
 
 --
@@ -157,10 +220,17 @@ DROP TABLE IF EXISTS `view`;
 CREATE TABLE IF NOT EXISTS `view` (
   `id` int NOT NULL AUTO_INCREMENT,
   `state` tinyint(1) NOT NULL,
-  `slug` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `slug` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `view_date` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Déchargement des données de la table `view`
+--
+
+INSERT INTO `view` (`id`, `state`, `slug`, `view_date`) VALUES
+(1, 1, 'video-vu', NULL);
 
 --
 -- Contraintes pour les tables déchargées

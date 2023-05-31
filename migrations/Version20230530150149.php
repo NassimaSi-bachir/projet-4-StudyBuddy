@@ -10,7 +10,7 @@ use Doctrine\Migrations\AbstractMigration;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-final class Version20230529005215 extends AbstractMigration
+final class Version20230530150149 extends AbstractMigration
 {
     public function getDescription(): string
     {
@@ -25,7 +25,6 @@ final class Version20230529005215 extends AbstractMigration
         $this->addSql('ALTER TABLE video_author ADD CONSTRAINT FK_85F87805F675F31B FOREIGN KEY (author_id) REFERENCES author (id) ON DELETE CASCADE');
         $this->addSql('ALTER TABLE video_category ADD CONSTRAINT FK_AECE2B7D29C1004E FOREIGN KEY (video_id) REFERENCES video (id) ON DELETE CASCADE');
         $this->addSql('ALTER TABLE video_category ADD CONSTRAINT FK_AECE2B7D12469DE2 FOREIGN KEY (category_id) REFERENCES category (id) ON DELETE CASCADE');
-        $this->addSql('ALTER TABLE view CHANGE slug slug VARCHAR(255) DEFAULT NULL');
     }
 
     public function down(Schema $schema): void
@@ -36,6 +35,5 @@ final class Version20230529005215 extends AbstractMigration
         $this->addSql('ALTER TABLE video DROP FOREIGN KEY FK_7CC7DA2C31518C7');
         $this->addSql('ALTER TABLE video_category DROP FOREIGN KEY FK_AECE2B7D29C1004E');
         $this->addSql('ALTER TABLE video_category DROP FOREIGN KEY FK_AECE2B7D12469DE2');
-        $this->addSql('ALTER TABLE view CHANGE slug slug VARCHAR(255) NOT NULL');
     }
 }

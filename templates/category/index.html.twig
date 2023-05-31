@@ -1,20 +1,22 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Les catégories{% endblock %}
+{% block title %}Study Buddy - Toutes les catégories{% endblock %}
 
 {% block body %}
 
 <main class="container-lg py-4">
-    <h1 class="mb-3"><i data-feather="search"></i> Study Buddy - Toutes les catégories <i data-feather="search"></i></h1>
+    <h1 class="mb-3"><i data-feather="search"></i> Toutes les catégories <i data-feather="search"></i></h1>
 
     <div class="row d-flex justify-content-center">
     {% for category in categorys %}
-    <div class="col-12 col-md-3 col-lg-2">
+    <div class="col-12 col-md-3 my-3">
             
-        <button class="btn btn-primary">
-            <img src="" class="card-img-top" alt="...">
-            <p>{{category.name}}</p>
-        </button>
+        
+            <button class="btn btn-light btn-outline-primary shadow">
+                <img src="{{ asset('/images/category/' ~ category.imageName) }}" class="card-img-top" alt="{{category.name}}">
+                <h2>{{category.name}}</h2>
+            </button>
+        
 
                     {# <img src="{{video.videoName}}" class="card-img-top" alt="...">
                     <div class="card-body">

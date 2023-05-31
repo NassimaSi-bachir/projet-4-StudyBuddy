@@ -16,7 +16,7 @@ class VideoFixtures extends Fixture
         $video->setImageName('groupe-positive');
         $video->setVideoName('education-positive-video.mp4');
         $video->setSlug('education-positive-video');
-        $video->addCategory($this->getReference(CategoryFixtures::EDUCATION_POSITIVE));
+        $video->addCategory($this->getReference(CategoryFixtures::LANGUES));
         $video->addAuthor($this->getReference(AuthorFixtures::ISABELLE_FILLIOZAT));
         $manager->persist($video);
 

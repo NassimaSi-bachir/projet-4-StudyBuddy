@@ -44,6 +44,9 @@ class Author
     #[ORM\ManyToMany(targetEntity: Video::class, mappedBy: 'author')]
     private Collection $videos;
 
+    #[ORM\Column(nullable: true)]
+    private ?\DateTimeImmutable $updatedAt = null;
+
     public function __construct()
     {
         $this->videos = new ArrayCollection();
@@ -180,6 +183,18 @@ class Author
         if ($this->videos->removeElement($video)) {
             $video->removeAuthor($this);
         }
+
+        return $this;
+    }
+
+    public function getUpdatedAt(): ?\DateTimeImmutable
+    {
+        return $this->updatedAt;
+    }
+
+    public function setUpdatedAt(?\DateTimeImmutable $updatedAt): self
+    {
+        $this->updatedAt = $updatedAt;
 
         return $this;
     }

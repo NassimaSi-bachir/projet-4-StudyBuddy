@@ -23,7 +23,7 @@ class VideoFixtures extends Fixture
         $video = new Video();
         $video->setTitle('Mathématiques : apprends les divisions');
         $video->setDescription("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.");
-        $video->setImageName('maths.png');
+        $video->setImageName('maths1.png');
         $video->setVideoName('mathematique-brissiaud.mp4');
         $video->setSlug('mathematique-video');
         $video->addCategory($this->getReference(CategoryFixtures::MATHEMATIQUES));
@@ -34,40 +34,40 @@ class VideoFixtures extends Fixture
         $video->setTitle('Apprends à lire avec Titou');
         $video->setDescription('Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ');
         $video->setImageName('francais1.png');
-        $video->setVideoName('francais1.mp4');
+        $video->setVideoName('sciences1.mp4');
         $video->setSlug('francais1');
         $video->addCategory($this->getReference(CategoryFixtures::FRANCAIS));
-        // $video->addAuthor($this->getReference(AuthorFixtures::ISABELLE_FILLIOZAT));
+        $video->addAuthor($this->getReference(AuthorFixtures::ISABELLE_FILLIOZAT));
         $manager->persist($video);
 
         $video = new Video();
         $video->setTitle('Les pays du monde');
         $video->setDescription('Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ');
         $video->setImageName('geographie1.png');
-        $video->setVideoName('geographie1.mp4'); 
+        $video->setVideoName('sciences4.mp4'); 
         $video->setSlug('geographie1');
         $video->addCategory($this->getReference(CategoryFixtures::GEOGRAPHIE));
-        // $video->addAuthor($this->getReference(AuthorFixtures::ISABELLE_FILLIOZAT));
+        $video->addAuthor($this->getReference(AuthorFixtures::MANON_BRIL));
         $manager->persist($video);
 
         $video = new Video();
         $video->setTitle('La campagne et la ville');
         $video->setDescription('Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ');
         $video->setImageName('geographie2.png');
-        $video->setVideoName('geographie2.mp4');
+        $video->setVideoName('sport1.mp4');
         $video->setSlug('geographie2');
         $video->addCategory($this->getReference(CategoryFixtures::GEOGRAPHIE));
-        // $video->addAuthor($this->getReference(AuthorFixtures::ISABELLE_FILLIOZAT));
+        $video->addAuthor($this->getReference(AuthorFixtures::MANON_BRIL));
         $manager->persist($video);
 
         $video = new Video();
         $video->setTitle('Les monuments en Italie');
         $video->setDescription('Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ');
         $video->setImageName('geographie3.png');
-        $video->setVideoName('geographie3.mp4');
+        $video->setVideoName('education-positive-video.mp4');
         $video->setSlug('geographie3');
         $video->addCategory($this->getReference(CategoryFixtures::GEOGRAPHIE));
-        // $video->addAuthor($this->getReference(AuthorFixtures::ISABELLE_FILLIOZAT));
+        $video->addAuthor($this->getReference(AuthorFixtures::MANON_BRIL));
         $manager->persist($video);
 
         $video = new Video();
@@ -77,27 +77,27 @@ class VideoFixtures extends Fixture
         $video->setVideoName('sciences1.mp4');
         $video->setSlug('sciences1');
         $video->addCategory($this->getReference(CategoryFixtures::SCIENCES));
-        // $video->addAuthor($this->getReference(AuthorFixtures::ISABELLE_FILLIOZAT));
+        $video->addAuthor($this->getReference(AuthorFixtures::JAMY));
         $manager->persist($video);
 
         $video = new Video();
         $video->setTitle('Les étoiles et les planètes');
         $video->setDescription('Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ');
         $video->setImageName('sciences2.png');
-        $video->setVideoName('sciences2.mp4');
+        $video->setVideoName('sciences4.mp4');
         $video->setSlug('sciences2');
         $video->addCategory($this->getReference(CategoryFixtures::SCIENCES));
-        // $video->addAuthor($this->getReference(AuthorFixtures::ISABELLE_FILLIOZAT));
+        $video->addAuthor($this->getReference(AuthorFixtures::JAMY));
         $manager->persist($video);
 
         $video = new Video();
         $video->setTitle('Le corps humain');
         $video->setDescription('Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ');
         $video->setImageName('sciences3.png');
-        $video->setVideoName('sciences3.mp4');
+        $video->setVideoName('sciences5.mp4');
         $video->setSlug('sciences3');
         $video->addCategory($this->getReference(CategoryFixtures::SCIENCES));
-        // $video->addAuthor($this->getReference(AuthorFixtures::ISABELLE_FILLIOZAT));
+        $video->addAuthor($this->getReference(AuthorFixtures::JAMY));
         $manager->persist($video);
 
         $video = new Video();
@@ -107,7 +107,7 @@ class VideoFixtures extends Fixture
         $video->setVideoName('sciences4.mp4');
         $video->setSlug('sciences4');
         $video->addCategory($this->getReference(CategoryFixtures::SCIENCES));
-        // $video->addAuthor($this->getReference(AuthorFixtures::ISABELLE_FILLIOZAT));
+        $video->addAuthor($this->getReference(AuthorFixtures::JAMY));
         $manager->persist($video);
 
         $video = new Video();
@@ -117,7 +117,7 @@ class VideoFixtures extends Fixture
         $video->setVideoName('sciences5.mp4');
         $video->setSlug('sciences5');
         $video->addCategory($this->getReference(CategoryFixtures::SCIENCES));
-        // $video->addAuthor($this->getReference(AuthorFixtures::ISABELLE_FILLIOZAT));
+        $video->addAuthor($this->getReference(AuthorFixtures::JAMY));
         $manager->persist($video);
 
         $video = new Video();
@@ -127,17 +127,17 @@ class VideoFixtures extends Fixture
         $video->setVideoName('sport1.mp4');
         $video->setSlug('sport1');
         $video->addCategory($this->getReference(CategoryFixtures::SPORT));
-        // $video->addAuthor($this->getReference(AuthorFixtures::ISABELLE_FILLIOZAT));
+        $video->addAuthor($this->getReference(AuthorFixtures::ISABELLE_FILLIOZAT));
         $manager->persist($video);
 
         $video = new Video();
         $video->setTitle('Deviens un vrai codeur');
         $video->setDescription('Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ');
         $video->setImageName('technologie1.png');
-        $video->setVideoName('technologie1.mp4');
+        $video->setVideoName('mathematique-brissiaud.mp4');
         $video->setSlug('technologie1');
         $video->addCategory($this->getReference(CategoryFixtures::TECHNOLOGIE));
-        // $video->addAuthor($this->getReference(AuthorFixtures::ISABELLE_FILLIOZAT));
+        $video->addAuthor($this->getReference(AuthorFixtures::REMI_BRISSIAUD));
         $manager->persist($video);
 
         $manager->flush(); 

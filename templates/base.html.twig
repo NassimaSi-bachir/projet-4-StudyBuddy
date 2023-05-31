@@ -31,24 +31,36 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav d-flex mx-auto align-items-center">
         <li class="nav-item mx-3">
+          {% if app.user is not null %}
           <a class="nav-link d-flex flex-column align-items-center" aria-current="page" href="{{path('app_video') }}">Accueil <i data-feather="home"></i></a>
+          {% else %}
+          <a class="nav-link d-flex flex-column align-items-center" href="{{ path('app_login')}}">Accueil <i data-feather="home"></i></i></a>
+          {% endif %}
         </li>
         <li class="nav-item mx-3">
+          {% if app.user is not null %}
           <a class="nav-link d-flex flex-column align-items-center" href="{{path('app_category') }}">Catégories <i data-feather="search"></i></a>
+          {% else %}
+          <a class="nav-link d-flex flex-column align-items-center" href="{{ path('app_login')}}">Catégories <i data-feather="search"></i></a>
+          {% endif %}
         </li>
         <a class="navbar-brand mx-5" href="{{path('app_home') }}">
           <img src="/images/studybuddy-logo.png" width="50px" alt="logo study buddy">
           <p>Study Buddy</p>
         </a>
         <li class="nav-item mx-3">
+          {% if app.user is not null %}
           <a class="nav-link d-flex flex-column align-items-center" href="#">Favoris <i data-feather="heart"></i></a>
+          {% else %}
+          <a class="nav-link d-flex flex-column align-items-center" href="{{ path('app_login')}}">Favoris <i data-feather="heart"></i></a>
+          {% endif %}
         </li>
         <li class="nav-item mx-3">
-        {% if app.user is not null %}
-        <a class="nav-link d-flex flex-column align-items-center" href="{{ path('app_logout')}}">Profil <i data-feather="user"></i></a>
-        {% else %}
-        <a class="nav-link d-flex flex-column align-items-center" href="{{ path('app_login')}}">Connexion <i data-feather="user"></i></a>
-        {% endif %}
+          {% if app.user is not null %}
+          <a class="nav-link d-flex flex-column align-items-center" href="{{ path('app_logout')}}">Profil <i data-feather="user"></i></a>
+          {% else %}
+          <a class="nav-link d-flex flex-column align-items-center" href="{{ path('app_login')}}">Connexion <i data-feather="user"></i></a>
+          {% endif %}
         </li>
       </ul>
     </div>

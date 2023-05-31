@@ -20,10 +20,15 @@
 
         <div class="col-12 col-md-4 col-xl-3 m-3"> 
             <div class="card">
-                <img src="{{ asset('/images/videos/capture-videos/' ~ video.imageName) }}" class="card-img-top" alt="{{video.title}}">
-                <div class="card-body">
+                <img src="{{ asset('/images/videos/captureVideos/' ~ video.imageName) }}" class="card-img-top" alt="{{video.title}}">
+                <div class="card-body text-center">
                     <h5 class="card-title">{{video.title}}</h5>
                     <p class="card-text">{{video.duration}}</p>
+                    <button class="btn btn-primary">
+                        {% for category in video.category %}
+                        {{ category.name }}
+                        {% endfor %}
+                    </button>
                     {# <a href="{{ path ('app_video_show', {slug:video.slug }) }}" class="btn btn-primary">{{video.title}}</a> #}
                 </div> 
             </div>

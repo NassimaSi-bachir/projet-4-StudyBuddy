@@ -12,13 +12,16 @@ class VideoController extends AbstractController
     #[Route('/video', name: 'app_video')]
     public function index(VideoRepository $videoRepository ): Response
     {
-        //On récupère tous les videos
+        //On récupère toutes les videos
         $videos = $videoRepository->findAll();
          //On rend la page en lui passant la liste des videos
         return $this->render('video/index.html.twig', [
             'videos' => $videos,
         ]);
+
+    
     }
+    
     #[Route('/video/{slug}', name:'app_video_show' )]
     public function showVideo($slug, VideoRepository $videoRepository):Response
     {

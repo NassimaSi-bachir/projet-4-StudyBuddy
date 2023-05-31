@@ -7,6 +7,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 
 class CategoryType extends AbstractType
 {
@@ -15,6 +16,10 @@ class CategoryType extends AbstractType
         $builder
             ->add('name')
             ->remove('slug')
+            ->add('imageFile', FileType::class, [
+                'required'=>false,
+                'label'=>"Votre image de catégorie",
+            ])
             ->add('videos', EntityType::class, [
                 'class'=> 'App\Entity\Video',
                 'multiple'=> true, //Pouvoir avoir plusieurs auteurs

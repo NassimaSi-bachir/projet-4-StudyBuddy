@@ -20,7 +20,7 @@
 
     <body>
 
-<nav class="navbar navbar-expand-md navbar-light text-center">
+<nav class=" navbar navbar-expand-md navbar-light text-center">
   <div class="container-fluid align-items-center">
     <a class="navbar-brand d-md-none" href="#">
       <img src="/images/studybuddy-logo.png" alt="logo study buddy">
@@ -44,7 +44,12 @@
           <a class="nav-link d-flex flex-column align-items-center" href="#">Favoris <i data-feather="heart"></i></a>
         </li>
         <li class="nav-item mx-3">
-          <a class="nav-link d-flex flex-column align-items-center" href="{{path('app_view') }}">Profil <i data-feather="user"></i></a>
+        {% if app.user is not null %}
+        <a class="nav-link d-flex flex-column align-items-center" href="{{ path('app_logout')}}">Déonnexion</a>
+        {% else %}
+        <a class="nav-link d-flex flex-column align-items-center" href="{{ path('app_login')}}">Connexion</a>
+        {% endif %}
+          <a class="nav-link d-flex flex-column align-items-center" href="{{path('app_view') }}">Profil<i data-feather="user"></i></a>
         </li>
       </ul>
     </div>

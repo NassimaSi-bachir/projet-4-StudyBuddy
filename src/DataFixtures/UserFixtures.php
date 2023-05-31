@@ -23,6 +23,15 @@ class UserFixtures extends Fixture
         $user->setEmail('nassima.siba@gmail.com');
         $user->setPassword($this->encoder->hashPassword($user,'pass'));
         $user->setRoles(['ROLE_USER', 'ROLE_ADMIN']);
+        $user->setIsVerified(true);
+        $manager->persist($user);
+
+        // on a crée un utilisateur
+        $user = new User();
+        $user->setEmail('user@user.com');
+        $user->setPassword($this->encoder->hashPassword($user, 'pass'));
+        $user->setRoles(['ROLE_USER']);
+        $user->setIsVerified(true);
         $manager->persist($user);
 
         $manager->flush();

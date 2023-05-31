@@ -9,7 +9,7 @@
 
     <h3>Apprendre</h3>
 
-    <img src="{{ asset('/images/accueil-image.png') }}" alt="dessin d'enfants" class="home-image">
+    <img src="{{ asset('/images/accueil-image.png') }}" alt="dessin d'enfants" class="home-image mb-3">
 
     <h3>Tout en jouant !</h3>
 
@@ -19,16 +19,15 @@
     {% for video in videos %}
 
         <div class="col-12 col-md-4 col-xl-3 m-3"> 
-            <div class="card">
+            <div class="card shadow">
                 <img src="{{ asset('/images/videos/captureVideos/' ~ video.imageName) }}" class="card-img-top" alt="{{video.title}}">
                 <div class="card-body text-center">
                     <h5 class="card-title">{{video.title}}</h5>
                     <p class="card-text">{{video.duration}}</p>
-                    <button class="btn btn-primary">
-                        {% for category in video.category %}
-                        {{ category.name }}
-                        {% endfor %}
-                    </button>
+                    {% for category in video.category %}
+                    <button class="btn btn-primary">{{ category.name }}</button>
+                    {% endfor %}
+                    
                     {# <a href="{{ path ('app_video_show', {slug:video.slug }) }}" class="btn btn-primary">{{video.title}}</a> #}
                 </div> 
             </div>

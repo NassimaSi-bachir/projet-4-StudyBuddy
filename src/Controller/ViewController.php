@@ -16,7 +16,7 @@ class ViewController extends AbstractController
         $views = $viewRepository->findAll();
          //On rend la page en lui passant la liste des videos
         return $this->render('view/index.html.twig', [
-            'controller_name' => 'ViewController',
+            'controller_name' => ' ViewController',
             'views'=>$views,
         ]);
     }

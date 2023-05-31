@@ -21,9 +21,9 @@
     <li>{{ author }}</li>
     <li class="col-md-4">
     {% if  author.imageName is defined and auteur.imageName is not null  %}
-    <img src="{{ asset('/images/authors/' ~ auteur.imageName) }}" class="img-fluid" alt="...">
+    <img src="{{ asset('/images/authors/' ~ auteur.imageName) }}" class="img-fluid" alt="">
     {% else %}
-    <img src="{{ asset('/images/authors/noUser.wavif') }}" class="img-fluid" alt="...">
+    <img src="{{ asset('/images/authors/noUser.wavif') }}" class="img-fluid" alt="">
     </li>
     {% endif %}
     {% endfor %}

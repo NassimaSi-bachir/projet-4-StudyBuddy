@@ -45,9 +45,13 @@
         </li>
         <li class="nav-item mx-3">
         {% if app.user is not null %}
-        <a class="nav-link d-flex flex-column align-items-center" href="{{ path('app_logout') }}">Déonnexion</a>
+
+        {# <a class="nav-link " href="{{path('app_profil')}}">Mon compte</a> #}
+        <a class="nav-link d-flex flex-column align-items-center" href="{{ path('app_logout')}}">Déonnexion</a>
         {% else %}
-        <a class="nav-link d-flex flex-column align-items-center" href="{{ path('app_login') }}">Connexion</a>
+        <a class="nav-link " href="{{path('app_register')}}">Inscription</a>
+        <a class="nav-link d-flex flex-column align-items-center" href="{{ path('app_login')}}">Connexion</a>
+
         {% endif %}
           <a class="nav-link d-flex flex-column align-items-center" href="{{path('app_profil') }}">Profil<i data-feather="user"></i></a>
         </li>
@@ -55,6 +59,14 @@
     </div>
   </div>
 </nav>
+    </nav>
+{% for label, messages in app.flashes() %}
+    {% for message in messages %}
+        <div class="alert alert-{{label}}" role="alert">
+            {{ message }}
+        </div>
+          {% endfor %}
+{% endfor %}
 
 
 
@@ -88,8 +100,9 @@
 </div>
 </nav> #}
 
-
+    <div class="container-xl">
         {% block body %}{% endblock %}
+    </div>
         {% block javascripts %}
         {% endblock %}
         <script>feather.replace()</script>

@@ -18,3 +18,20 @@ body {
     font-family: 'Patrick Hand SC', cursive;
     text-align: center;
 }
+
+#home-page {
+    text-align:center;
+    font-family: 'Patrick Hand SC', cursive;
+}
+
+#home-page .home-image {
+    width:70%;
+}
+
+#home-page h3 {
+    color:#F7941D; 
+}
+
+#home-page footer {
+    background-color: #C346E8;
+}

@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Study Buddy - Accueil{% endblock %}
+
+{% block body %}
+
+<div id="home-page" class="m-3">
+    <h2>Avec Studdy Buddy, apprendre deviendra un plaisir. Studdy Buddy est une plateforme regroupant des vidéos qui permettront à votre enfant d’apprendre tout en s’amusant.</h2>
+
+    <h3>Apprendre</h3>
+
+    <img src="{{ asset('/images/accueil-image.png') }}" alt="dessin d'enfants" class="home-image">
+
+    <h3>Tout en jouant !</h3>
+
+</div>
+
+    <div class="row d-flex justify-content-center">
+    {% for video in videos %}
+
+        <div class="col-12 col-md-4 col-xl-3 m-3"> 
+            <div class="card">
+                <img src="{{ asset('/images/videos/capture-videos/' ~ video.imageName) }}" class="card-img-top" alt="{{video.title}}">
+                <div class="card-body">
+                    <h5 class="card-title">{{video.title}}</h5>
+                    <p class="card-text">{{video.duration}}</p>
+                    {# <a href="{{ path ('app_video_show', {slug:video.slug }) }}" class="btn btn-primary">{{video.title}}</a> #}
+                </div> 
+            </div>
+        </div> 
+
+{% endfor %}
+
+        <footer>
+        <div class="footer mt-5">
+            <div class="d-flex justify-content-evenly align-items-center">
+                <div class="row">
+                    <div class="col-6">
+                        <p class="copyright text-uppercase">Studdy Buddy ©2023
+                        </p>
+                    </div>
+                    <div class="col-6">
+                        <i data-feather="facebook"></i>
+                        <i data-feather="twitter"></i>
+                        <i data-feather="instagram"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</div>
+
+{% endblock %}

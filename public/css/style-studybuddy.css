@@ -40,3 +40,33 @@ body {
     background-color: #C346E8;
 }
 
+/* Code pour login */
+#login-container {
+    background-color: #C346E8;
+    border-radius: 3%;
+    padding-bottom: 3%;
+    display: flex;
+    flex-direction: column;
+    gap:5px;
+    width: 30%;
+    color:white;
+}
+
+#login-button {
+    background-color:#F7941D;
+    margin-top: 15px;
+    color: white;
+}
+
+#login-inscrire{
+    display: flex;
+    margin: auto;
+    justify-content: center;
+    margin-top:5px;
+}
+
+#login-titre {
+    padding-top: 20px;
+    display:flex;
+    justify-content: center;
+}

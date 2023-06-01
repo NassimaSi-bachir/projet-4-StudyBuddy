@@ -21,6 +21,10 @@ body {
     text-align: center;
 }
 
+nav img {
+    width:50px;
+}
+
 /*______________ Code pour personnaliser la page HOME______________ */
 
 #home-page {
@@ -36,7 +40,18 @@ body {
     color:#F7941D; 
 }
 
-#home-page footer {
-    background-color: #C346E8;
+.seconnecter {
+    background-color:#C346E8;
+    color:aliceblue;
+}
+
+.sinscrire {
+    background-color:#F7941D; 
+    color:aliceblue;
+}
+
+.seconnecter:hover, .sinscrire:hover {
+    background-color: gold;
+    color:rgb(10, 9, 9);
 }
 

@@ -36,8 +36,9 @@ class ProfilController extends AbstractController
             'form' => $form->createView()
         ]);
     }
+    
     #[Route('/add-favori/{id}', name:'add_favori' )]
-    public function addFavori($id, VideoRepository $videoRepository, EntityManagerInterface $em):Response
+    public function addFavori($id, VideoRepository $videoRepository, EntityManagerInterface $em, Request $request):Response
     {
         // On récupère la video dans la BDD
     $video = $videoRepository->find($id);
@@ -50,13 +51,13 @@ class ProfilController extends AbstractController
     $em->persist($user);
     $em->flush();
     //On redirige vers la page vidéo
-    return $this->redirectToRoute('app_profil');
+    return $this->redirect($request->headers->get('referer'));
 
 
     }
 
     #[Route('/remove-video/{id}', name:'remove_video' )]
-    public function removeVideo($id, VideoRepository $videoRepository, EntityManagerInterface $em):Response
+    public function removeVideo($id, VideoRepository $videoRepository, EntityManagerInterface $em, Request $request):Response
     {
         // On récupère la video dans la BDD
     $video = $videoRepository->find($id);
@@ -69,7 +70,7 @@ class ProfilController extends AbstractController
     $em->persist($user);
     $em->flush();
     //On redirige vers la page vidéo
-    return $this->redirectToRoute('app_video');
+    return $this->redirect($request->headers->get('referer'));
 
 
     }

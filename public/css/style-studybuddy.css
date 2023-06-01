@@ -56,21 +56,20 @@ nav img {
 }
 
 /* Code pour login */
-#login-container {
+#login-container, #profil-container, #register-container {
     background-color: #C346E8;
-    border-radius: 3%;
-    padding-bottom: 3%;
-    display: flex;
-    flex-direction: column;
     gap:5px;
-    width: 30%;
     color:white;
 }
 
-#login-button {
+#login-button, #profil-button, #register-button {
     background-color:#F7941D;
-    margin-top: 15px;
     color: white;
+}
+
+#login-button:hover,  #profil-button:hover, #register-button:hover {
+    background-color:gold;
+    color: black;
 }
 
 #login-inscrire{

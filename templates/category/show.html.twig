@@ -5,10 +5,10 @@
 {% block body %}
 <h1>Catégorie : {{ category.name }}</h1>
 
-{% if videos is not empty %}
+{% if category.videos is not empty %}
     <div class="row d-flex justify-content-center">
 
-    {% for video in videos %}
+    {% for video in category.videos %}
         <div class="col-12 col-md-4 col-xl-3 mb-3"> 
             <div class="card shadow">
 
@@ -21,13 +21,22 @@
                     <a href="{{ path ('app_video_show', {slug:video.slug }) }}" class="btn btn-primary rounded-circle position-absolute top-50 start-50 translate-middle p-2">
                         <i data-feather="play"></i>
                     </a>
+
+                    <a href="#" class="btn btn-light rounded-circle position-absolute bottom-0 end-0 p-1 m-2">
+                    <i data-feather="heart" class="text-danger"></i>
+                    </a>
+
+                    {# Code pour le coeur plein
+                    <a href="#" class="btn btn-danger rounded-circle position-absolute bottom-0 end-0 p-1 m-2">
+                    <i data-feather="heart" class="text-light"></i>
+                    </a> #}
+
                 </div>                
 
-                <div class="card-body">
+                <div class="card-body text-center">
                     <a href="{{ path ('app_video_show', {slug:video.slug }) }}" class="btn btn-primary">{{video.title}}</a>
                     <p class="card-text">{{video.description}}</p>
-                    <p class="card-text">{{video.duration}}</p>
-                    <p class="card-text"><i data-feather="heart" class="text-danger"> </i></p>
+                    {# <p class="card-text">{{video.duration}}</p> #}
                 </div>
             </div>
 
@@ -36,7 +45,13 @@
     </div>
 
 {% else %}
-    <p>Aucune vidéo trouvée pour cette catégorie.</p>
+
+    <p class="text-center">
+    Aucune vidéo trouvée pour cette catégorie.
+    <br>
+    <a href="{{ path ('app_category') }}" class="btn btn-primary mt-3">Explorer d'autres catégories</a>
+    </p>
+
 {% endif %} 
 
 

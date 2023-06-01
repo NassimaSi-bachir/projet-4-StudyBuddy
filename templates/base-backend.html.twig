@@ -27,16 +27,16 @@
                 </a>
 
                                 <a class="nav-link dropdown-toggle d-none d-sm-inline-block" href="#" data-bs-toggle="dropdown">
-                                <span class="text-dark">Charles Hall</span>
+                                <span class="text-dark">{{ app.user.userIdentifier }}</span>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-end">
-                                    <a class="dropdown-item" href="pages-profile.html"><i class="align-middle me-1" data-feather="user"></i> Profil</a>
+                                    <a class="dropdown-item" href="{{path('app_profil')}}"><i class="align-middle me-1" data-feather="user"></i> Profil</a>
                                     <a class="dropdown-item" href="#"><i class="align-middle me-1" data-feather="pie-chart"></i> Statistiques</a>
                                     <div class="dropdown-divider"></div>
                                     <a class="dropdown-item" href="index.html"><i class="align-middle me-1" data-feather="settings"></i> Paramètres de confidentialité</a>
                                     <a class="dropdown-item" href="#"><i class="align-middle me-1" data-feather="help-circle"></i> Centre d'aide</a>
                                     <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="#">Se déconnecter</a>
+                                    <a class="dropdown-item" href="{{path('app_logout')}}">Se déconnecter</a>
                                 </div>
                             </li>
                         </ul>
@@ -77,7 +77,7 @@
             </div>
         </div>
 
-     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     <script src="{{ asset('js/app.js') }}"></script>
             {% block javascripts %}

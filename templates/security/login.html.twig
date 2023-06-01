@@ -1,16 +1,29 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Log in!{% endblock %}
+{% block title %}Study Buddy - Se connecter{% endblock %}
 
 {% block body %}
+
+
+                {% if app.user is not null %}
+
+    <h3 class="mb-3 text-center"> Tu es déjà connecté.e avec l'adresse mail : {{ app.user.userIdentifier }}.
+    <br>Tu peux partir à la découverte de Study Buddy !
+    <br>
+    <a href= "{{path('app_logout')}}" class="btn btn-primary m-3">Se déconnecter</a>
+    </h3>
+
+
+                {% else %}
+
 <form method="post">
     {% if error %}
         <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
     {% endif %}
 
     {% if app.user %}
-        <div class="mb-3">
-            You are logged in as {{ app.user.userIdentifier }}, <a href="{{ path('app_logout') }}">Logout</a>
+        <div class="mb-3 text-center">
+            Tu es connecté.e avec l'adresse mail suivante : {{ app.user.userIdentifier }}. <a href="{{ path('app_logout') }}">Se déconnecter</a>
         </div>
     {% endif %}
 
@@ -21,14 +34,14 @@
 
     <h1 class="mb-3 font-weight-normal" id="login-titre">Se connecter </h1>
 
+
     <label for="inputEmail">Email</label>
     <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" placeholder="Email" autocomplete="email" required autofocus>
     <label for="inputPassword">Password</label>
     <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Mot de passe" autocomplete="current-password" required>
 
     <input type="hidden" name="_csrf_token"
-            value="{{ csrf_token('authenticate') }}"
-    >
+            value="{{ csrf_token('authenticate') }}">
 
     {#
         Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
@@ -49,4 +62,8 @@
         <p>Tu n'as pas encore de compte ? <a href= "{{path('app_register')}}">Inscris-toi.</a></p>
     </div>
 </form>
+
+
+                {% endif %}
+                
 {% endblock %}

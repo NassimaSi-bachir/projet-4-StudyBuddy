@@ -26,7 +26,7 @@ class VideoFixtures extends Fixture
         $video = new Video();
         $video->setTitle('Mathématiques : apprendre les divisions');
         $video->setDescription("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ");
-        $video->setImageName('rectangle.png');
+        $video->setImageName('technologie1.png');
         $video->setVideoName('mathematique-brissiaud.mp4');
         $video->setSlug('mathematique-video');
         $video->addCategory($this->getReference(CategoryFixtures::MATHEMATIQUES));

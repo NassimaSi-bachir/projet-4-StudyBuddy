@@ -23,16 +23,13 @@ class CategoryController extends AbstractController
     }
 
     #[Route('/category/{slug}', name:'app_category_show' )]
-    public function showCategory($slug, CategoryRepository $categoryRepository, VideoRepository $videoRepository):Response
+    public function showCategory($slug, CategoryRepository $categoryRepository):Response
     {
        //On récupère la catégorie correspondant au slug
         $category = $categoryRepository->findOneBy(['slug' => $slug]);
-        //On récupère les vidéos de la catégorie
-        $videos = $videoRepository->findBy(['category'=> $category]);
        //On rend la page en lui passant les vidéos correspondantes
         return $this->render('category/show.html.twig', [
         'category' => $category,
-        'videos' => $videos,
         ]);  
     }
 }

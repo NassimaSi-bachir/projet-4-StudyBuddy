@@ -1,11 +1,11 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello ProfilController!{% endblock %}
+{% block title %}Study Buddy - Mon profil{% endblock %}
 
 {% block body %}
 <div class="container-lg w-75">
 
-<h1>Mon compte</h1>
+<h1>Mon profil</h1>
 <ul class="nav nav-tabs" id="myTab" role="tablist">
     <li class="nav-item" role="presentation">
         <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">Mes infos</button>
@@ -24,6 +24,9 @@
                     <button type="submit" class="btn m-3" id="profil-button">Modifier</button>
                     {{form_end(form) }}
         </div>
+        
+        <a href= "{{path('app_logout')}}" class="btn btn-primary m-3">Se déconnecter</a>
+
     </div>
 </div>
 

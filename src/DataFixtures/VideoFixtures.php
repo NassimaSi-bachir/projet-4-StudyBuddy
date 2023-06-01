@@ -13,7 +13,7 @@ class VideoFixtures extends Fixture
         $video = new Video();
         $video->setTitle('Education positive : pratiques');
         $video->setDescription("Un Groupe De Jeunes Dans La Discussion D'un Projet De Groupe");
-        $video->setImageName('lecture.jpg');
+        $video->setImageName('imageEnfant.jpeg');
         $video->setVideoName('education-positive-video.mp4');
         $video->setSlug('education-positive-video');
         $video->addCategory($this->getReference(CategoryFixtures::LANGUES));
@@ -23,7 +23,7 @@ class VideoFixtures extends Fixture
         $video = new Video();
         $video->setTitle('Mathématiques : apprendre les divisions');
         $video->setDescription("Un élève Résolvant Une équation Mathématique Sur Le Tableau Noir");
-        $video->setImageName('mathematiques.jpeg');
+        $video->setImageName('rectangle.png');
         $video->setVideoName('mathematique-brissiaud.mp4');
         $video->setSlug('mathematique-video');
         $video->addCategory($this->getReference(CategoryFixtures::MATHEMATIQUES));

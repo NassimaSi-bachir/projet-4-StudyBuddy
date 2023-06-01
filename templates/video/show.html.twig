@@ -3,29 +3,37 @@
 {% block title %}{{video.title}}{% endblock %}
 
 {% block body %}
-<h1>{{ video.title }}</h1>
-<div class="row">
-    <div class="col-12 col-md-5">
-    {% if  video.imageName is defined and video.imageName is not null  %}
-    <img src="{{ asset('/images/videos/captureVideos/' ~ video.imageName) }}" class="img-fluid" alt="{{video.title}}">
-    {% else %}
-    <img src="{{ asset('/images/videos/captureVideos/noUser.avif') }}" class="img-fluid" alt="{{video.title}}">
-    {% endif %}
+<h1 id="title-video">{{ video.title }}</h1>
+
+<div class=" col-12 m-auto ">
+    <div class="block-general row">
+        {% if  video.videoName is defined and video.videoName is not null  %}
+        <video controls class="imageName">
+        <source src="{{ asset('/images/videos/videos-cours/' ~ video.videoName) }}" class=" shadow mb-5 bg-body rounded img-fluid m-auto " type="video/webm" alt="{{video.title}}">
+        </video>
+        {% else %}
+
+        <video controls >
+        <source src="{{ asset('/images/videos/videos-cours/' ~ video.videoName) }}" class=" shadow mb-5 bg-body rounded img-fluid mx-auto d-block " type="video/webm" alt="{{video.title}}">
+        </video>
+        {% endif %}
     </div>
-    <div class="col-12 col-md-7">
-    <h2>Description</h2>
-    <p>{{ video.description }}</p>
-    <h2>Auteur(s)</h2>
-    <ul>
-    {% for author in video.author %}
-    <li>{{ author }}</li>
-    <li class="col-md-4">
-    {% if  author.imageName is defined and author.imageName is not null  %}
-    <img src="{{ asset('/images/authors/' ~ author.imageName) }}" class="img-fluid" alt="">
-    {% else %}
-    <img src="{{ asset('/images/authors/noUser.wavif') }}" class="img-fluid" alt="">
-    </li>
-    {% endif %}
-    {% endfor %}
-    </div>
+        <div id="align-text-img"class="col-12" >
+            <div class="align-text ">
+                <h2>Description</h2>
+                <p>{{ video.description }}</p>
+            </div>
+    
+    
+            }
+                <div id="champs-author">
+                    <ul class="list-unstyled">
+                    <li class="col-md-4">
+                    <h2>Auteur(s)</h2>
+                    {% for author in video.author %}
+                    <li>{{ author }}</li>
+                </div>
+                {% endfor %}
+        </div>
+</div>     
 {% endblock %}

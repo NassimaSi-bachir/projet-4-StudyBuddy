@@ -15,6 +15,9 @@
     </li>
 </ul>
 
+{# Fin du code pour la nav : deux onglets #}
+
+
 <div class="tab-content" id="myTabContent">
     <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
         <div class="container-lg col-12 mt-3 rounded py-2 m-auto" id="profil-container">
@@ -28,56 +31,56 @@
         <a href= "{{path('app_logout')}}" class="btn btn-primary m-3">Se déconnecter</a>
 
     </div>
-</div>
+</div> 
 
-    <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
-        <main class="container-lg py-4 m-auto">
-            <h2 class="mb-3 text-center"><i data-feather="heart"></i> Mes favoris <i data-feather="heart"></i></h2>
+{# Fin du code pour l'onglet profil #}
 
-        
+
+<div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
+    <div class="container-lg py-4 m-auto">
+        <h2 class="mb-3 text-center"><i data-feather="heart"></i> Mes favoris <i data-feather="heart"></i></h2>
+
         {% if app.user.videos|length > 0 %}
-    <div class="row d-flex justify-content-center">
+            <div class="row d-flex justify-content-center">
 
-    {% for video in app.user.videos %}
-<div class="col-12 col-md-4 col-xl-3 mb-3"> 
-            <div class="card shadow">
+            {% for video in app.user.videos %}
+                <div class="col-12 col-md-4 col-xl-3 mb-3"> 
+                    <div class="card shadow">
 
-                <div class="position-relative">
-                    {% if  video.imageName is defined and video.imageName is not null  %}
-                    <img src="{{ asset('/images/videos/captureVideos/' ~ video.imageName) }}" class="card-img-top" alt="{{video.title}}">
-                    {% else %}
-                    <img src="{{ asset('/images/videos/captureVideos/no-image.png') }}" class="img-fluid" alt="{{video.title}}">
-                    {% endif %}
-                    <a href="{{ path ('app_video_show', {slug:video.slug }) }}" class="btn btn-primary rounded-circle position-absolute top-50 start-50 translate-middle p-2">
-                        <i data-feather="play"></i>
-                    </a>
+                        <div class="position-relative">
+                            {% if  video.imageName is defined and video.imageName is not null  %}
+                            <img src="{{ asset('/images/videos/captureVideos/' ~ video.imageName) }}" class="card-img-top" alt="{{video.title}}">
+                            {% else %}
+                            <img src="{{ asset('/images/videos/captureVideos/no-image.png') }}" class="img-fluid" alt="{{video.title}}">
+                            {% endif %}
+                            <a href="{{ path ('app_video_show', {slug:video.slug }) }}" class="btn btn-primary rounded-circle position-absolute top-50 start-50 translate-middle p-2">
+                                <i data-feather="play"></i>
+                            </a>
+                            <a href="{{ path ('remove_video', {id:video.id }) }}" class="btn btn-danger rounded-circle position-absolute bottom-0 end-0 p-1 m-2">
+                            <i data-feather="heart" class="text-light"></i>
+                            </a>
+                        </div>
+                        <div class="card-body text-center">
+                            <a href="{{ path ('app_video_show', {slug:video.slug }) }}" class="btn btn-primary">{{video.title}}</a>
+                            <p class="card-text">{{video.description}}</p>
+                            {# <p class="card-text">{{video.duration}}</p> #}
+                        </div>
 
-                    <a href="{{ path ('remove_video', {id:video.id }) }}" class="btn btn-danger rounded-circle position-absolute bottom-0 end-0 p-1 m-2">
-                    <i data-feather="heart" class="text-light"></i>
-                    </a>
-                    
-                    
+                    </div> 
+                    {# fin de la card #}
                 </div>
-
-                <div class="card-body text-center">
-                    <a href="{{ path ('app_video_show', {slug:video.slug }) }}" class="btn btn-primary">{{video.title}}</a>
-                    <p class="card-text">{{video.description}}</p>
-                    {# <p class="card-text">{{video.duration}}</p> #}
-                </div>
+                {# fin de la div col-12 #}
+            {% endfor %}
 
             </div>
-        </div>
+            {# fin de la div row  #}
 
-    {% endfor %}
+        {% else %}
+        <p class="text-center">Vous n'avez aucun favori pour l'instant.</p>
+
+        {% endif %}
+
     </div>
-    {% else %}
-    <p>Vous n'avez aucun favori por l'instant</p>
-
-    {% endif %}
-    </main>
-  
-
-
 
 </div>
 

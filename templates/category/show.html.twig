@@ -22,14 +22,15 @@
                         <i data-feather="play"></i>
                     </a>
 
-                    <a href="#" class="btn btn-light rounded-circle position-absolute bottom-0 end-0 p-1 m-2">
+                    {% if video not in app.user.videos %}
+                    <a href="{{ path ('add_favori', {id:video.id }) }}" class="btn btn-light rounded-circle position-absolute bottom-0 end-0 p-1 m-2">
                     <i data-feather="heart" class="text-danger"></i>
                     </a>
-
-                    {# Code pour le coeur plein
-                    <a href="#" class="btn btn-danger rounded-circle position-absolute bottom-0 end-0 p-1 m-2">
+                    {% else %}
+                    <a href="{{ path ('remove_video', {id:video.id }) }}" class="btn btn-danger rounded-circle position-absolute bottom-0 end-0 p-1 m-2">
                     <i data-feather="heart" class="text-light"></i>
-                    </a> #}
+                    </a>
+                    {% endif %}
 
                 </div>                
 

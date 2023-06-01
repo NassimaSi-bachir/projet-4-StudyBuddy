@@ -25,15 +25,13 @@
             </div>
     
     
-            }
-                <div id="champs-author">
-                    <ul class="list-unstyled">
-                    <li class="col-md-4">
+
+                <div id="champs-author" class="col-md-4">
                     <h2>Auteur(s)</h2>
                     {% for author in video.author %}
-                    <li>{{ author }}</li>
-                </div>
+                    <p>{{ author.surname }} {{ author.name }}</p>
                 {% endfor %}
+                </div>
         </div>
 </div>     
 {% endblock %}

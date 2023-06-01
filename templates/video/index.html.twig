@@ -51,12 +51,46 @@
 
     <h1 class="mb-3"><i data-feather="heart"></i> Mes favoris <i data-feather="heart"></i></h1>
 
-    <div class="row d-flex justify-content-center">
+<div class="row d-flex justify-content-center">
+    {% if app.user.videos|length > 0 %}
 
-A venir
-    
-    </div>
+    {% for video in app.user.videos %}
+        <div class="col-12 col-md-4 col-xl-3 mb-3"> 
+            <div class="card shadow">
 
+                <div class="position-relative">
+                    {% if  video.imageName is defined and video.imageName is not null  %}
+                    <img src="{{ asset('/images/videos/captureVideos/' ~ video.imageName) }}" class="card-img-top" alt="{{video.title}}">
+                    {% else %}
+                    <img src="{{ asset('/images/videos/captureVideos/no-image.png') }}" class="img-fluid" alt="{{video.title}}">
+                    {% endif %}
+                    <a href="{{ path ('app_video_show', {slug:video.slug }) }}" class="btn btn-primary rounded-circle position-absolute top-50 start-50 translate-middle p-2">
+                        <i data-feather="play"></i>
+                    </a>
+
+                    <a href="{{ path ('remove_video', {id:video.id }) }}" class="btn btn-danger rounded-circle position-absolute bottom-0 end-0 p-1 m-2">
+                    <i data-feather="heart" class="text-light"></i>
+                    </a>
+                    
+                    
+                </div>
+
+                <div class="card-body text-center">
+                    <a href="{{ path ('app_video_show', {slug:video.slug }) }}" class="btn btn-primary">{{video.title}}</a>
+                    <p class="card-text">{{video.description}}</p>
+                    {# <p class="card-text">{{video.duration}}</p> #}
+                </div>
+
+            </div>
+        </div>
+
+    {% endfor %}
+
+    {% else %}
+    <p class="text-center">Vous n'avez aucun favori pour l'instant.</p>
+
+    {% endif %}
+</div>
 
 {% endblock %}
 

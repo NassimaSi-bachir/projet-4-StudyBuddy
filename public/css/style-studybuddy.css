@@ -35,10 +35,6 @@ body {
 }
 
 #align-text-img{
-    display: flex;
-    justify-items: center;
-    align-items: center;
-    justify-content: space-around;
     margin-top: 30px;
 
 }

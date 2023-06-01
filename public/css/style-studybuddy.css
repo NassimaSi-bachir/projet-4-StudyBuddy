@@ -6,6 +6,8 @@ hmtl{
     list-style: none;
 }
 
+/*______________ Code pour personnaliser la nav et le body communs______________ */
+
 body {
     background-image: url("/images/background.png");
     background-repeat: no-repeat;
@@ -21,6 +23,7 @@ body {
     font-family: 'Patrick Hand SC', cursive;
     text-align: center;
 }
+
 
 /* ------------------------------------------page show ----------------------------------------------------- */
 
@@ -61,5 +64,69 @@ body {
 .align-text{
     display: flex;
     flex-direction: column;
+
+
+nav img {
+    width:50px;
+}
+
+/*______________ Code pour personnaliser la page HOME______________ */
+
+#home-page {
+    text-align:center;
+    font-family: 'Patrick Hand SC', cursive;
+}
+
+#home-page .home-image {
+    width:70%;
+}
+
+#home-page h3 {
+    color:#F7941D; 
+}
+
+.seconnecter {
+    background-color:#C346E8;
+    color:aliceblue;
+}
+
+.sinscrire {
+    background-color:#F7941D; 
+    color:aliceblue;
+}
+
+.seconnecter:hover, .sinscrire:hover {
+    background-color: gold;
+    color:rgb(10, 9, 9);
+}
+
+/* Code pour login */
+#login-container, #profil-container, #register-container {
+    background-color: #C346E8;
+    gap:5px;
+    color:white;
+}
+
+#login-button, #profil-button {
+    background-color:#F7941D;
+    color: white;
+}
+
+#login-button:hover, #profil-button:hover {
+    background-color:gold;
+    color: black;
+}
+
+#login-inscrire{
+    display: flex;
+    margin: auto;
+    justify-content: center;
+    margin-top:5px;
+}
+
+#login-titre {
+    padding-top: 20px;
+    display:flex;
+    justify-content: center;
 
 }

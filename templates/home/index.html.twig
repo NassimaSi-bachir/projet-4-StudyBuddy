@@ -1,0 +1,67 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Study Buddy - Accueil{% endblock %}
+
+{% block body %}
+
+<div id="home-page" class="m-3">
+    <h2>Avec Studdy Buddy, apprendre deviendra un plaisir. Studdy Buddy est une plateforme regroupant des vidéos qui permettront à votre enfant d’apprendre tout en s’amusant.</h2>
+
+    <h3>Apprendre</h3>
+
+    <img src="{{ asset('/images/accueil-image.png') }}" alt="dessin d'enfants" class="home-image mb-3">
+    <h3>Tout en jouant !</h3>
+
+
+    <div class="d-flex flex-column justify-content-center align-items-center">
+        <a href="{{path('app_login')}}" class="btn w-25 seconnecter m-2">Se connecter</a>
+        <a href="{{path('app_register')}}" class="btn w-25 sinscrire m-2">S'inscrire</a>
+        
+    </div>
+
+</div>
+
+    <div class="row d-flex justify-content-center">
+    {% for video in videos %}
+
+        <div class="col-12 col-md-4 col-xl-3 m-3"> 
+            <div class="card shadow">
+                <img src="{{ asset('/images/videos/captureVideos/' ~ video.imageName) }}" class="card-img-top" alt="{{video.title}}">
+                <div class="card-body text-center">
+                    <h5 class="card-title">{{video.title}}</h5>
+                    <p class="card-text">{{video.duration}}</p>
+                    {% for category in video.category %}
+                    <button class="btn btn-primary">{{ category.name }}</button>
+                    {% endfor %}
+                    
+                    {# <a href="{{ path ('app_video_show', {slug:video.slug }) }}" class="btn btn-primary">{{video.title}}</a> #}
+                </div> 
+            </div>
+        </div> 
+
+{% endfor %}
+
+
+<footer class="footer mt-3">
+                <div class="container-fluid">
+                    <div class="row text-muted">
+                        <div class="col-6 text-start">
+                            <p class="mb-0">
+                                <a class="text-muted" href="https://adminkit.io/" target="_blank">Studdy Buddy ©2023</a>
+                            </p>
+                        </div>
+                        <div class="col-6 text-end">
+                            <ul class="list-inline mx-2">
+                                <li class="list-inline-item" ><i data-feather="facebook"></i></li>
+                                <li class="list-inline-item" ><i data-feather="twitter"></i></li>
+                                <li class="list-inline-item" ><i data-feather="instagram"></i></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+
+
+</div>
+
+{% endblock %}

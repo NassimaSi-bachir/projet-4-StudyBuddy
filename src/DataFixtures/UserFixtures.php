@@ -18,10 +18,9 @@ class UserFixtures extends Fixture
     {
         $user = new User();
 
-        $user->setName('nassima');
-        $user->setSurname('siba');
+        $user->setName('siba');
+        $user->setSurname('nassima');
         $user->setSlug('nassima_siba');
-
         $user->setEmail('nassima.siba@gmail.com');
         $user->setPassword($this->encoder->hashPassword($user,'pass'));
         $user->setRoles(['ROLE_USER', 'ROLE_ADMIN']);
@@ -30,6 +29,9 @@ class UserFixtures extends Fixture
 
         // on a crée un utilisateur
         $user = new User();
+        $user->setName('user');
+        $user->setSurname('prenom');
+        $user->setSlug('user_name');
         $user->setEmail('user@user.com');
         $user->setPassword($this->encoder->hashPassword($user, 'pass'));
         $user->setRoles(['ROLE_USER']);

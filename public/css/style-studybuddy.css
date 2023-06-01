@@ -107,12 +107,16 @@ nav img {
     color:white;
 }
 
-#login-button, #profil-button {
+
+#login-button, #profil-button, #register-button {
+
     background-color:#F7941D;
     color: white;
 }
 
-#login-button:hover, #profil-button:hover {
+
+#login-button:hover,  #profil-button:hover, #register-button:hover {
+
     background-color:gold;
     color: black;
 }

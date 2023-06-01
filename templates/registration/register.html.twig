@@ -7,15 +7,21 @@
         <div class="alert alert-danger" role="alert">{{ flash_error }}</div>
     {% endfor %}
 
-    <h1>Register</h1>
+    <h1>S'inscrire</h1>
 
+{# py=padding vertical , je mets 2 mais ça peut aller jusqu'à 5#}
+<div class="container m-auto w-50 mt-3 rounded py-2" id="register-container">
     {{ form_start(registrationForm) }}
+                {{ form_row(registrationForm.name) }}
+                        {{ form_row(registrationForm.surname) }}
         {{ form_row(registrationForm.email) }}
         {{ form_row(registrationForm.plainPassword, {
             label: 'Password'
         }) }}
+        
         {{ form_row(registrationForm.agreeTerms) }}
+    {{ form_end(registrationForm)}}
+        <button type="submit" class="btn" id="register-button">Register</button>
 
-        <button type="submit" class="btn">Register</button>
-    {{ form_end(registrationForm) }}
+</div>
 {% endblock %}

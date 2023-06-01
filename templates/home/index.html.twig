@@ -10,8 +10,14 @@
     <h3>Apprendre</h3>
 
     <img src="{{ asset('/images/accueil-image.png') }}" alt="dessin d'enfants" class="home-image mb-3">
-
     <h3>Tout en jouant !</h3>
+
+
+    <div class="d-flex flex-column justify-content-center align-items-center">
+        <a href="{{path('app_login')}}" class="btn w-25 seconnecter m-2">Se connecter</a>
+        <a href="{{path('app_register')}}" class="btn w-25 sinscrire m-2">S'inscrire</a>
+        
+    </div>
 
 </div>
 
@@ -35,23 +41,26 @@
 
 {% endfor %}
 
-        <footer>
-        <div class="footer mt-5">
-            <div class="d-flex justify-content-evenly align-items-center">
-                <div class="row">
-                    <div class="col-6">
-                        <p class="copyright text-uppercase">Studdy Buddy ©2023
-                        </p>
-                    </div>
-                    <div class="col-6">
-                        <i data-feather="facebook"></i>
-                        <i data-feather="twitter"></i>
-                        <i data-feather="instagram"></i>
+
+<footer class="footer mt-3">
+                <div class="container-fluid">
+                    <div class="row text-muted">
+                        <div class="col-6 text-start">
+                            <p class="mb-0">
+                                <a class="text-muted" href="https://adminkit.io/" target="_blank">Studdy Buddy ©2023</a>
+                            </p>
+                        </div>
+                        <div class="col-6 text-end">
+                            <ul class="list-inline mx-2">
+                                <li class="list-inline-item" ><i data-feather="facebook"></i></li>
+                                <li class="list-inline-item" ><i data-feather="twitter"></i></li>
+                                <li class="list-inline-item" ><i data-feather="instagram"></i></li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </footer>
+            </footer>
+
 
 </div>
 

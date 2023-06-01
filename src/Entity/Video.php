@@ -56,10 +56,14 @@ class Video
     #[ORM\ManyToOne(inversedBy: 'videos')]
     private ?View $view = null;
 
+    #[ORM\ManyToMany(targetEntity: User::class, mappedBy: 'videos')]
+    private Collection $users;
+
     public function __construct()
     {
         $this->author = new ArrayCollection();
         $this->category = new ArrayCollection();
+        $this->users = new ArrayCollection();
     }
 
     public function __toString(): string
@@ -249,6 +253,33 @@ class Video
     public function setView(?View $view): self
     {
         $this->view = $view;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, User>
+     */
+    public function getUsers(): Collection
+    {
+        return $this->users;
+    }
+
+    public function addUser(User $user): self
+    {
+        if (!$this->users->contains($user)) {
+            $this->users->add($user);
+            $user->addVideo($this);
+        }
+
+        return $this;
+    }
+
+    public function removeUser(User $user): self
+    {
+        if ($this->users->removeElement($user)) {
+            $user->removeVideo($this);
+        }
 
         return $this;
     }

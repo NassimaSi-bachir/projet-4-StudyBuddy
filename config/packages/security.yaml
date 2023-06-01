@@ -34,6 +34,9 @@ security:
     access_control:
         - { path: ^/admin, roles: ROLE_ADMIN }
         - { path: ^/profil, roles: ROLE_USER }
+        - { path: ^/video, roles: ROLE_USER }
+        - { path: ^/category, roles: ROLE_USER }
+        - { path: ^/favoris, roles: ROLE_USER }
 
 when@test:
     security:

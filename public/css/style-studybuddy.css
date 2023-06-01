@@ -2,6 +2,9 @@
 /* font-family: 'Patrick Hand', cursive;
 font-family: 'Patrick Hand SC', cursive;
 font-family: 'Permanent Marker', cursive; */
+hmtl{
+    list-style: none;
+}
 
 /*______________ Code pour personnaliser la nav et le body communs______________ */
 
@@ -20,6 +23,48 @@ body {
     font-family: 'Patrick Hand SC', cursive;
     text-align: center;
 }
+
+
+/* ------------------------------------------page show ----------------------------------------------------- */
+
+.imageName{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 900px;
+    margin-top: 30px;
+    box-sizing: border-box;   
+}
+
+#align-text-img{
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    justify-content: space-around;
+    margin-top: 30px;
+
+}
+
+
+#champs-author{
+    display: flex;
+    flex-direction: column;
+}
+
+.block-general{
+    display: flex;
+    flex-direction: column;
+}
+
+#title-video{
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.align-text{
+    display: flex;
+    flex-direction: column;
+
 
 nav img {
     width:50px;
@@ -83,4 +128,5 @@ nav img {
     padding-top: 20px;
     display:flex;
     justify-content: center;
+
 }

@@ -1,8 +1,20 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Register{% endblock %}
+{% block title %}Study Buddy - S'inscrire{% endblock %}
 
 {% block body %}
+
+                {% if app.user is not null %}
+
+    <h3 class="mb-3 text-center"> Tu es déjà connecté.e avec l'adresse mail : {{ app.user.userIdentifier }}.
+    <br>Tu peux partir à la découverte de Study Buddy !
+    <br>
+    <a href= "{{path('app_logout')}}" class="btn btn-primary m-3">Se déconnecter</a>
+    </h3>
+
+
+                {% else %}
+
     {% for flash_error in app.flashes('verify_email_error') %}
         <div class="alert alert-danger" role="alert">{{ flash_error }}</div>
     {% endfor %}
@@ -16,12 +28,19 @@
                         {{ form_row(registrationForm.surname) }}
         {{ form_row(registrationForm.email) }}
         {{ form_row(registrationForm.plainPassword, {
-            label: 'Password'
+            label: 'Mot de passe'
         }) }}
         
         {{ form_row(registrationForm.agreeTerms) }}
     {{ form_end(registrationForm)}}
-        <button type="submit" class="btn" id="register-button">Register</button>
+        <button type="submit" class="btn" id="register-button">S'inscrire</button>
 
 </div>
+
+    <div id="login-inscrire">
+        <p>Déjà un compte ? <a href= "{{path('app_login')}}">Connecte-toi.</a></p>
+    </div>
+
+    {% endif %}
+
 {% endblock %}

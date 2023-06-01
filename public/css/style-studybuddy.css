@@ -64,7 +64,7 @@ body {
 .align-text{
     display: flex;
     flex-direction: column;
-
+}
 
 nav img {
     width:50px;

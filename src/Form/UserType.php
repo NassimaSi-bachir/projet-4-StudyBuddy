@@ -6,6 +6,7 @@ use App\Entity\User;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 
 class UserType extends AbstractType
@@ -20,13 +21,17 @@ class UserType extends AbstractType
                 'mapped' => false,
                 ])
             // ->add('password')
-            ->add('name')
-            ->add('surname')
+            ->add('name', TextType::class, [
+                'label'=>"Nom de famille",
+            ])
+            ->add('surname', TextType::class,[
+                'label'=>"Prénom",
+            ])
             // ->add('imageName')
             // ->add('slug')
             // ->add('updatedAt')
-            ->add('date')
-            ->add('favoris')
+            ->remove('date')
+            ->remove('favoris')
         ;
     }
 

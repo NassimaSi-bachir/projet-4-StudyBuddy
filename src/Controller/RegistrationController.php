@@ -55,6 +55,7 @@ class RegistrationController extends AbstractController
             // do anything else you need here, like send an email
             $this->addFlash('success', 'Inscription réussie validez votre compte en cliquant sur le lien reçu par email.');
             return $this->redirectToRoute('app_video');
+        
         }
 
         return $this->render('registration/register.html.twig', [

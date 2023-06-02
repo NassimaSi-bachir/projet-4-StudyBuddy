@@ -6,7 +6,10 @@
 <h1 id="title-video">{{ video.title }}</h1>
 
 <div class=" col-12 m-auto ">
+
     <div class="block-general row">
+    
+    
         {% if  video.videoName is defined and video.videoName is not null  %}
         <video controls class="imageName">
         <source src="{{ asset('/images/videos/videos-cours/' ~ video.videoName) }}" class=" shadow mb-5 bg-body rounded img-fluid m-auto " type="video/webm" alt="{{video.title}}">
@@ -18,12 +21,23 @@
         </video>
         {% endif %}
     </div>
-        <div id="align-text-img"class="col-12" >
-            <div class="align-text ">
+        <div id="align-text-img" class="col-12" >
+    
+        <div class="text-end bouton-coeur">
+        {% if video not in app.user.videos %}
+        <a href="{{ path ('add_favori', {id:video.id }) }}" class="btn btn-light rounded-circle p-1 m-2">
+        <i data-feather="heart" class="text-danger"></i>
+        </a>
+        {% else %}
+        <a href="{{ path ('remove_video', {id:video.id }) }}" class="btn btn-danger rounded-circle p-1 m-2">
+        <i data-feather="heart" class="text-light"></i>
+        </a>
+        {% endif %}
+        </div>
+    
                 <h2>Description</h2>
                 <p>{{ video.description }}</p>
             </div>
-    
     
 
                 <div id="champs-author" class="col-md-4">

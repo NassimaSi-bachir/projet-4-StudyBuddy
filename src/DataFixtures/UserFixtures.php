@@ -17,7 +17,6 @@ class UserFixtures extends Fixture
     public function load(ObjectManager $manager): void
     {
         $user = new User();
-
         $user->setName('siba');
         $user->setSurname('nassima');
         $user->setSlug('nassima_siba');
@@ -29,10 +28,10 @@ class UserFixtures extends Fixture
 
         // on a crée un utilisateur
         $user = new User();
-        $user->setName('user');
-        $user->setSurname('prenom');
-        $user->setSlug('user_name');
-        $user->setEmail('user@user.com');
+        $user->setName('Doucoure');
+        $user->setSurname('Habibata');
+        $user->setSlug('Habibata_Doucoure');
+        $user->setEmail('habibata@Doucoure.com');
         $user->setPassword($this->encoder->hashPassword($user, 'pass'));
         $user->setRoles(['ROLE_USER']);
         $user->setIsVerified(true);
